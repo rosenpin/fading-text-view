@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="fading_text_view">
+        <attr name="texts" format="string" />
+        <attr name="timeout" format="integer" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FadingTextView</string>
+    <string-array name="texts">
+        <item>hello</item>
+        <item>world</item>
+    </string-array>
+
+</resources>
