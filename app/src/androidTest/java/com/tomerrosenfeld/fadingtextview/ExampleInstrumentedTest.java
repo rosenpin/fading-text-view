@@ -1,4 +1,4 @@
-package com.tomer.fadingtextview;
+package com.tomerrosenfeld.fadingtextview;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.tomer.fadingtextview.test", appContext.getPackageName());
+        assertEquals("com.tomerrosenfeld.fadingtextview", appContext.getPackageName());
     }
 }
