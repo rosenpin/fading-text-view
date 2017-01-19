@@ -9,9 +9,10 @@ Add this to your module build.gradle
 
 ``` gradle
 dependencies {
-    compilecompile 'com.tomer:fadingtextview:1.0
+    compile 'com.tomer:fadingtextview:1.0'
     }
-    '```
+    
+```
 
 First, you need to create a string-array in your values folder like so:
 
