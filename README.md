@@ -7,7 +7,11 @@ A textview that changes its content automatically every few seconds
 
 Add this to your module build.gradle
 
-``` compile 'com.tomer:fadingtextview:1.0'```
+``` gradle
+dependencies {
+    compilecompile 'com.tomer:fadingtextview:1.0
+    }
+    '```
 
 First, you need to create a string-array in your values folder like so:
 
