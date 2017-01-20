@@ -63,7 +63,7 @@ app:timeout="500"
             app:texts="@array/examples" />
 ```
 
-### Getters & setters
+### Updating the view dynamically
 To set the text dynamically, you can use
 
 ```java
