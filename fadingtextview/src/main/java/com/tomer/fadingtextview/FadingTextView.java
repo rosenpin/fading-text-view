@@ -75,7 +75,6 @@ public class FadingTextView extends TextView {
         fadeOutAnimation = AnimationUtils.loadAnimation(context, R.anim.fadeout);
         handler = new Handler();
         isShown = true;
-        setMaxLines(1);
     }
 
     private void handleAttrs(Context context, AttributeSet attrs) {
