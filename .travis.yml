@@ -10,3 +10,5 @@ android:
   - extra-android-m2repository
 jdk:
 - oraclejdk8
+before_install:
+  - echo "sdk.dir=$ANDROID_HOME" > local.properties
