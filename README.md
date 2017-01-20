@@ -12,6 +12,7 @@ dependencies {
     compile 'com.tomer:fadingtextview:1.1'
 }
 ```
+###Texts
 
 First, you need to create a string-array in your values folder like so:
 
