@@ -11,7 +11,6 @@ Add this to your module build.gradle
 dependencies {
     compile 'com.tomer:fadingtextview:1.0'
 }
-    
 ```
 
 First, you need to create a string-array in your values folder like so:
@@ -43,9 +42,25 @@ app:timeout="500"
 
 ```  xml
 <com.tomer.fadingtextview.FadingTextView
+            android:id="@+id/fadingTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:height="64dp"
             app:timeout="500"
             app:texts="@array/examples" />
+```
+
+### Getters & setters
+To set the text dynamically, you can use
+
+```java
+String[] texts = {"text1","text2","text3"};
+FadingTextView FTV = (FadingTextView) findViewById(R.id.fadingTextView);
+FTV.setTexts(texts); //You can use an array resource or a string array as the parameter
+```
+
+To set the timeout between text change in milliseconds you can use
+
+```java
+FTV.setTimeOut(1000);
 ```
