@@ -10,9 +10,6 @@ Add this to your project build.gradle
 allprojects {
     repositories {
         jcenter()
-        maven {
-            url "https://jitpack.io"
-        }
     }
 }
 ```
