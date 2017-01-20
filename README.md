@@ -66,6 +66,8 @@ FTV.setTimeOut(1000);
 ```
 
 
+## License
+
 ```
 Copyright (c) Tomer Rosenfeld 2016-2017
 
