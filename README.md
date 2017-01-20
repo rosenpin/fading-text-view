@@ -5,6 +5,18 @@ A textview that changes its content automatically every few seconds
 
 ##Usage
 
+Add this to your project build.gradle
+``` gradle
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+}
+```
+
 Add this to your module build.gradle
 
 ``` gradle
