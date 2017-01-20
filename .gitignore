@@ -7,3 +7,9 @@
 /build
 /captures
 .externalNativeBuild
+.idea
+app/libs/
+app/src/main/java/
+app/src/main/res/drawable/
+private_key_sender.asc
+public_key_sender.asc
