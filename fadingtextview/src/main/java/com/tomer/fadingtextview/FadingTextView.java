@@ -13,7 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 /**
- * Created by tomer on 12/8/16.
+ * Created by rosenpin on 12/8/16.
  */
 
 public class FadingTextView extends TextView {
