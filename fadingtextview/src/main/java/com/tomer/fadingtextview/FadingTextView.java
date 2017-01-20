@@ -5,8 +5,8 @@ import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.ArrayRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -55,7 +55,19 @@ public class FadingTextView extends TextView {
 
     public void pause() {
         isShown = false;
-        handler.removeCallbacksAndMessages(null);
+        stopAnimation();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        pause();
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        resume();
     }
 
     private void init(Context context) {
@@ -64,10 +76,6 @@ public class FadingTextView extends TextView {
         handler = new Handler();
         isShown = true;
         setMaxLines(1);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            setTextAppearance(android.R.style.TextAppearance_Material_Button);
-            setTextColor(ContextCompat.getColor(context, android.R.color.white));
-        }
     }
 
     private void handleAttrs(Context context, AttributeSet attrs) {
@@ -83,7 +91,37 @@ public class FadingTextView extends TextView {
     }
 
     public void setTexts(@ArrayRes int texts) {
-        this.texts = getResources().getStringArray(texts);
+        if (getResources().getStringArray(texts).length < 1)
+            throw new IllegalArgumentException("There must be at least one text");
+        else {
+            this.texts = getResources().getStringArray(texts);
+            stopAnimation();
+            position = 0;
+            startAnimation();
+        }
+    }
+
+    public void setTexts(@NonNull String[] texts) {
+        if (texts.length < 1)
+            throw new IllegalArgumentException("There must be at least one text");
+        else {
+            this.texts = texts;
+            stopAnimation();
+            position = 0;
+            startAnimation();
+        }
+    }
+
+    public void setTimeout(int timeout) {
+        if (timeout < 1)
+            throw new IllegalArgumentException("Timeout must be longer than 0");
+        else
+            this.timeout = timeout;
+    }
+
+    private void stopAnimation() {
+        handler.removeCallbacksAndMessages(null);
+        if (getAnimation() != null) getAnimation().cancel();
     }
 
     protected void startAnimation() {
