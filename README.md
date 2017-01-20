@@ -1,5 +1,6 @@
 # FadingTextView
 
+[![JitPack](https://jitpack.io/v/rosenpin/FadingTextView.svg)](https://jitpack.io/#rosenpin/FadingTextView)
 [![Download](https://api.bintray.com/packages/rosenpin/maven/fadingtextview/images/download.svg) ](https://bintray.com/rosenpin/maven/fadingtextview/_latestVersion)
 [![Apache License 2.0](https://img.shields.io/github/license/HeinrichReimer/material-singleinputform.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
