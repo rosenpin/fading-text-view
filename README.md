@@ -17,10 +17,10 @@ dependencies {
 First, you need to create a string-array in your values folder like so:
 
 ``` xml
-  <string-array name="examples">
-        <item>Hello</item>
-        <item>Fading TextView</item>
-    </string-array>
+<string-array name="examples">
+     <item>Hello</item>
+     <item>Fading TextView</item>
+</string-array>
 ```
 
 Then in your layout
