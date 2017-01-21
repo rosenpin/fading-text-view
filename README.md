@@ -50,7 +50,7 @@ Then in your layout
 
 ###Timeout
 
-You can set the time you want each text to appear by using the timeout attribute and specify the length of time in milliseconds. Like so:
+You can set the amount of time that each text is visible by using the timeout attribute and by specifying the length of time in milliseconds. Like so:
 
 ``` xml
 app:timeout="500"
