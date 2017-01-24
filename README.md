@@ -3,7 +3,8 @@
 [![JitPack](https://jitpack.io/v/rosenpin/FadingTextView.svg)](https://jitpack.io/#rosenpin/FadingTextView)
 [![Download](https://api.bintray.com/packages/rosenpin/maven/fadingtextview/images/download.svg) ](https://bintray.com/rosenpin/maven/fadingtextview/_latestVersion)
 [![Build Status](https://travis-ci.org/rosenpin/FadingTextView.svg?branch=master)](https://travis-ci.org/rosenpin/FadingTextView)
-[![Apache License 2.0](https://img.shields.io/github/license/HeinrichReimer/material-singleinputform.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+[![](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-FadingTextView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5112)
 
 A textview that changes its content automatically every few seconds
 
