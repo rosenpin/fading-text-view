@@ -1,6 +1,5 @@
 # FadingTextView
 
-[![JitPack](https://jitpack.io/v/rosenpin/FadingTextView.svg)](https://jitpack.io/#rosenpin/FadingTextView)
 [![Download](https://api.bintray.com/packages/rosenpin/maven/fadingtextview/images/download.svg) ](https://bintray.com/rosenpin/maven/fadingtextview/_latestVersion)
 [![Build Status](https://travis-ci.org/rosenpin/FadingTextView.svg?branch=master)](https://travis-ci.org/rosenpin/FadingTextView)
 [![](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
