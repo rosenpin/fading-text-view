@@ -82,7 +82,6 @@ public class FadingTextView extends TextView {
         this.texts = a.getTextArray(R.styleable.fading_text_view_texts);
         this.timeout = Math.abs(a.getInteger(R.styleable.fading_text_view_timeout, 14500)) + getResources().getInteger(android.R.integer.config_longAnimTime);
         a.recycle();
-        startAnimation();
     }
 
     public CharSequence[] getTexts() {
