@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/rosenpin/FadingTextView.svg?branch=master)](https://travis-ci.org/rosenpin/FadingTextView)
 [![](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-FadingTextView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5112)
+<a target="_blank" href="https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#GINGERBREAD"><img src="https://img.shields.io/badge/API-9%2B-blue.svg?style=flat" alt="API" /></a> 
 
 A textview that changes its content automatically every few seconds
 
