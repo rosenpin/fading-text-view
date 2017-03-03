@@ -16,7 +16,7 @@ import android.widget.TextView;
  * Created by rosenpin on 12/8/16.
  */
 
-public class FadingTextView extends TextView {
+public class FadingTextView extends android.support.v7.widget.AppCompatTextView {
     private Animation fadeInAnimation, fadeOutAnimation;
     private Handler handler;
     private CharSequence[] texts;
@@ -43,7 +43,7 @@ public class FadingTextView extends TextView {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public FadingTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+        super(context, attrs, defStyleAttr);
         init(context);
         handleAttrs(context, attrs);
     }
