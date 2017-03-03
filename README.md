@@ -26,7 +26,7 @@ Add this to your module build.gradle
 
 ``` gradle
 dependencies {
-    compile 'com.tomer:fadingtextview:1.4'
+    compile 'com.tomer:fadingtextview:1.5'
 }
 ```
 ###Texts
