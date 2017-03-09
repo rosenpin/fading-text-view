@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/rosenpin/FadingTextView'
     gitUrl = 'https://github.com/rosenpin/FadingTextView.git'
 
-    libraryVersion = '1.4'
+    libraryVersion = '1.6'
 
     developerId = 'rosenpin'
     developerName = 'Tomer Rosenfeld'

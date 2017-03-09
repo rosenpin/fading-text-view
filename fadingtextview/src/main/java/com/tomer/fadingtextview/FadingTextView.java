@@ -10,19 +10,19 @@ import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.TextView;
 
 /**
  * Created by rosenpin on 12/8/16.
  */
 
 public class FadingTextView extends android.support.v7.widget.AppCompatTextView {
+    public static final int DEFAULT_TIME_OUT = 15000;
     private Animation fadeInAnimation, fadeOutAnimation;
     private Handler handler;
     private CharSequence[] texts;
     private boolean isShown;
     private int position;
-    private int timeout = 15000;
+    private int timeout = DEFAULT_TIME_OUT;
 
     public FadingTextView(Context context) {
         super(context);
@@ -88,17 +88,6 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
         return texts;
     }
 
-    public void setTexts(@ArrayRes int texts) {
-        if (getResources().getStringArray(texts).length < 1)
-            throw new IllegalArgumentException("There must be at least one text");
-        else {
-            this.texts = getResources().getStringArray(texts);
-            stopAnimation();
-            position = 0;
-            startAnimation();
-        }
-    }
-
     public void setTexts(@NonNull String[] texts) {
         if (texts.length < 1)
             throw new IllegalArgumentException("There must be at least one text");
@@ -110,11 +99,42 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
         }
     }
 
+    public void setTexts(@ArrayRes int texts) {
+        if (getResources().getStringArray(texts).length < 1)
+            throw new IllegalArgumentException("There must be at least one text");
+        else {
+            this.texts = getResources().getStringArray(texts);
+            stopAnimation();
+            position = 0;
+            startAnimation();
+        }
+    }
+
     public void setTimeout(int timeout) {
         if (timeout < 1)
             throw new IllegalArgumentException("Timeout must be longer than 0");
         else
             this.timeout = timeout;
+    }
+
+    public void setTimeout(double timeout, TimeUnit timeUnit) {
+        if (timeout <= 0)
+            throw new IllegalArgumentException("Timeout must be longer than 0");
+        else {
+            int multiplier;
+            switch (timeUnit) {
+                case SECONDS:
+                    multiplier = 1000;
+                    break;
+                case MINUTES:
+                    multiplier = 60000;
+                    break;
+                default:
+                    multiplier = 1;
+                    break;
+            }
+            this.timeout = (int) (timeout * multiplier);
+        }
     }
 
     private void stopAnimation() {
@@ -150,5 +170,11 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
                 });
             }
         }, timeout);
+    }
+
+    public enum TimeUnit {
+        MILLISECONDS,
+        SECONDS,
+        MINUTES
     }
 }
