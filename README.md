@@ -86,7 +86,7 @@ FTV.setTimeOut(1000);
 To set the timeout between text change using other time units (i.e. seconds, minutes) you can use. Timeout must be any number higher than 0
 
 ```java
-FTV.setTimeout(0.5, FadingTextView.TimeUnit.MINUTES);;
+FTV.setTimeout(0.5, FadingTextView.TimeUnit.MINUTES);
 ```
 
 ## License
