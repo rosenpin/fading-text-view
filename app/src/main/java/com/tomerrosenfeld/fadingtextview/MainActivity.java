@@ -13,6 +13,8 @@ import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
 import java.util.Random;
 
+import static com.tomer.fadingtextview.FadingTextView.SECONDS;
+
 public class MainActivity extends AppCompatActivity {
 
     int[] jokes = {R.array.examples_1, R.array.examples_2, R.array.examples_3};
@@ -25,13 +27,13 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //FadingTextView related code
         final FadingTextView fadingTextView = (FadingTextView) findViewById(R.id.fadingTextView);
-        fadingTextView.setTimeout(2, FadingTextView.SECONDS);
+        fadingTextView.setTimeout(2, SECONDS);
         //Setting up the timeout seek bar
         DiscreteSeekBar seekBar = (DiscreteSeekBar) findViewById(R.id.timeout_bar);
         seekBar.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
             @Override
             public void onProgressChanged(DiscreteSeekBar seekBar, int value, boolean fromUser) {
-                fadingTextView.setTimeout(value, FadingTextView.SECONDS);
+                fadingTextView.setTimeout(value, SECONDS);
                 fadingTextView.forceRefresh();
             }
 
