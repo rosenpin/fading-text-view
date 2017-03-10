@@ -11,7 +11,11 @@ import com.tomer.fadingtextview.FadingTextView;
 
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
+
+    int[] jokes = {R.array.examples_1, R.array.examples_2, R.array.examples_3};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,5 +54,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(browserIntent);
             }
         });
+        //Show jokes if the app is in production
+        if (!BuildConfig.DEBUG) {
+            fadingTextView.setTexts(jokes[new Random().nextInt((3) + 1)]);
+        }
     }
 }

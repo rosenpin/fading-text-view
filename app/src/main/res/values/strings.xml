@@ -3,7 +3,30 @@
     <string name="title_activity_main">MainActivity</string>
     <string-array name="examples">
         <item>Text number 1</item>
-        <item>This is a different text</item>
-        <item>WOW many texts!</item>
+        <item>Wow this is text 2</item>
+        <item>SO MUCH TEXTS</item>
+        <item>Many FADING!!!</item>
+        <item>Oh Hi Mark!</item>
+    </string-array>
+    <string-array name="examples_1">
+        <item>Knock knock.</item>
+        <item>Who’s there?</item>
+        <item>Beats.</item>
+        <item>Beats who?</item>
+        <item>Beats me.</item>
+    </string-array>
+    <string-array name="examples_2">
+        <item>Knock knock.</item>
+        <item>Who’s there?</item>
+        <item>Cows go.</item>
+        <item>Cows go who?</item>
+        <item>No you idiot, cows go mooo!</item>
+    </string-array>
+    <string-array name="examples_3">
+        <item>Knock knock.</item>
+        <item>Who’s there?</item>
+        <item>Kanga.</item>
+        <item>Kanga who?</item>
+        <item>Actually, it’s kangaroo!</item>
     </string-array>
 </resources>
