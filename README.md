@@ -26,7 +26,7 @@ Add this to your module build.gradle
 
 ``` gradle
 dependencies {
-    compile 'com.tomer:fadingtextview:1.6'
+    compile 'com.tomer:fadingtextview:1.7'
 }
 ```
 ###Texts
@@ -46,7 +46,6 @@ Then in your layout
 <com.tomer.fadingtextview.FadingTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:height="64dp"
             app:texts="@array/examples" />
 ```
 
@@ -63,7 +62,6 @@ app:timeout="500"
             android:id="@+id/fadingTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:height="64dp"
             app:timeout="500"
             app:texts="@array/examples" />
 ```
@@ -77,16 +75,20 @@ FadingTextView FTV = (FadingTextView) findViewById(R.id.fadingTextView);
 FTV.setTexts(texts); //You can use an array resource or a string array as the parameter
 ```
 
-To set the timeout between text change in milliseconds you can use. Timeout must be longer than 0 (1 or higher)
+To set the timeout between text changes you can use:
 
 ```java
-FTV.setTimeOut(1000);
-```
+//For text change once every hour
+FTV.setTimeout(60, FadingTextView.TimeUnit.MINUTES);
 
-To set the timeout between text change using other time units (i.e. seconds, minutes) you can use. Timeout must be any number higher than 0
-
-```java
+//For text change once every half a minute
 FTV.setTimeout(0.5, FadingTextView.TimeUnit.MINUTES);
+
+//For text change every 10 seconds
+FTV.setTimeout(10, FadingTextView.TimeUnit.SECONDS);
+
+//For text change every 500 milliseconds (0.5 seconds)
+FTV.setTimeout(500, FadingTextView.TimeUnit.MILLISECONDS);
 ```
 
 ## License
