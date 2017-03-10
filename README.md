@@ -30,7 +30,7 @@ Add this to your module build.gradle
 
 ``` gradle
 dependencies {
-    compile 'com.tomer:fadingtextview:1.7'
+    compile 'com.tomer:fadingtextview:1.8'
 }
 ```
 ###Texts
@@ -83,16 +83,16 @@ To set the timeout between text changes you can use:
 
 ```java
 //For text change once every hour
-FTV.setTimeout(60, FadingTextView.TimeUnit.MINUTES);
+FTV.setTimeout(60, MINUTES);
 
 //For text change once every half a minute
-FTV.setTimeout(0.5, FadingTextView.TimeUnit.MINUTES);
+FTV.setTimeout(0.5, MINUTES);
 
 //For text change every 10 seconds
-FTV.setTimeout(10, FadingTextView.TimeUnit.SECONDS);
+FTV.setTimeout(10, SECONDS);
 
 //For text change every 500 milliseconds (0.5 seconds)
-FTV.setTimeout(500, FadingTextView.TimeUnit.MILLISECONDS);
+FTV.setTimeout(500, MILLISECONDS);
 ```
 
 ## Full Documentation
