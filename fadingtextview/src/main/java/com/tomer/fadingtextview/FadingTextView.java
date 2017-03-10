@@ -88,22 +88,22 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
         return texts;
     }
 
-    public void setTexts(@NonNull String[] texts) {
-        if (texts.length < 1)
+    public void setTexts(@ArrayRes int texts) {
+        if (getResources().getStringArray(texts).length < 1)
             throw new IllegalArgumentException("There must be at least one text");
         else {
-            this.texts = texts;
+            this.texts = getResources().getStringArray(texts);
             stopAnimation();
             position = 0;
             startAnimation();
         }
     }
 
-    public void setTexts(@ArrayRes int texts) {
-        if (getResources().getStringArray(texts).length < 1)
+    public void setTexts(@NonNull String[] texts) {
+        if (texts.length < 1)
             throw new IllegalArgumentException("There must be at least one text");
         else {
-            this.texts = getResources().getStringArray(texts);
+            this.texts = texts;
             stopAnimation();
             position = 0;
             startAnimation();
@@ -117,7 +117,7 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
             this.timeout = timeout;
     }
 
-    public void setTimeout(double timeout, TimeUnit timeUnit) {
+    public void setTimeout(double timeout, @NonNull TimeUnit timeUnit) {
         if (timeout <= 0)
             throw new IllegalArgumentException("Timeout must be longer than 0");
         else {
