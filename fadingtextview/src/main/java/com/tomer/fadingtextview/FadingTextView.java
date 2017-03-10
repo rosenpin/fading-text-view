@@ -5,19 +5,28 @@ import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.ArrayRes;
+import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * @author Tomer Rosenfeld aka rosenpin
- * Created by rosenpin on 12/8/16.
+ *         Created by rosenpin on 12/8/16.
  */
 
 public class FadingTextView extends android.support.v7.widget.AppCompatTextView {
+
     public static final int DEFAULT_TIME_OUT = 15000;
+    public static final int MILLISECONDS = 1,
+            SECONDS = 2,
+            MINUTES = 3;
+
     private Animation fadeInAnimation, fadeOutAnimation;
     private Handler handler;
     private CharSequence[] texts;
@@ -99,6 +108,7 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
 
     /**
      * Sets the texts to be shuffled using a string array
+     *
      * @param texts The string array to use for the texts
      */
     public void setTexts(@NonNull String[] texts) {
@@ -114,6 +124,7 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
 
     /**
      * Sets the texts to be shuffled using a string array resource
+     *
      * @param texts The string array resource to use for the texts
      */
     public void setTexts(@ArrayRes int texts) {
@@ -138,8 +149,9 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
 
     /**
      * Sets the length of time to wait between text changes in milliseconds
-     * @deprecated use {@link #setTimeout(double, TimeUnit)} instead.
+     *
      * @param timeout The length of time to wait between text change in milliseconds
+     * @deprecated use {@link #setTimeout(double, int)} instead.
      */
     @Deprecated
     public void setTimeout(int timeout) {
@@ -151,16 +163,22 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
 
     /**
      * Sets the length of time to wait between text changes in specific time units
-     * @param timeout The length of time to wait between text change
+     *
+     * @param timeout  The length of time to wait between text change
      * @param timeUnit The time unit to use for the timeout parameter
-     *                 Must be of {@link TimeUnit} type
+     *                 Must be of {@link TimeUnit} type.    Either {@link #MILLISECONDS} or
+     *                 {@link #SECONDS} or
+     *                 {@link #MINUTES}
      */
-    public void setTimeout(double timeout, @NonNull TimeUnit timeUnit) {
+    public void setTimeout(double timeout, @TimeUnit int timeUnit) {
         if (timeout <= 0)
             throw new IllegalArgumentException("Timeout must be longer than 0");
         else {
             int multiplier;
             switch (timeUnit) {
+                case MILLISECONDS:
+                    multiplier = 1;
+                    break;
                 case SECONDS:
                     multiplier = 1000;
                     break;
@@ -210,9 +228,8 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
         }, timeout);
     }
 
-    public enum TimeUnit {
-        MILLISECONDS,
-        SECONDS,
-        MINUTES
+    @IntDef({MILLISECONDS, SECONDS, MINUTES})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface TimeUnit {
     }
 }

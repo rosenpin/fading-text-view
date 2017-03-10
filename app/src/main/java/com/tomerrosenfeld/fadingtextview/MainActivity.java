@@ -25,13 +25,13 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //FadingTextView related code
         final FadingTextView fadingTextView = (FadingTextView) findViewById(R.id.fadingTextView);
-        fadingTextView.setTimeout(2, FadingTextView.TimeUnit.SECONDS);
+        fadingTextView.setTimeout(2, FadingTextView.SECONDS);
         //Setting up the timeout seek bar
         DiscreteSeekBar seekBar = (DiscreteSeekBar) findViewById(R.id.timeout_bar);
         seekBar.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
             @Override
             public void onProgressChanged(DiscreteSeekBar seekBar, int value, boolean fromUser) {
-                fadingTextView.setTimeout(value, FadingTextView.TimeUnit.SECONDS);
+                fadingTextView.setTimeout(value, FadingTextView.SECONDS);
                 fadingTextView.forceRefresh();
             }
 
