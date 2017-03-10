@@ -12,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 /**
+ * @author Tomer Rosenfeld aka rosenpin
  * Created by rosenpin on 12/8/16.
  */
 
@@ -97,6 +98,7 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
     }
 
     /**
+     * Sets the texts to be shuffled using a string array
      * @param texts The string array to use for the texts
      */
     public void setTexts(@NonNull String[] texts) {
@@ -111,6 +113,7 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
     }
 
     /**
+     * Sets the texts to be shuffled using a string array resource
      * @param texts The string array resource to use for the texts
      */
     public void setTexts(@ArrayRes int texts) {
