@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -14,12 +16,22 @@
     tools:showIn="@layout/activity_main">
 
     <com.tomer.fadingtextview.FadingTextView
+        android:id="@+id/fadingTextView"
+        style="@style/TextAppearance.AppCompat.Headline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:height="64dp"
         android:gravity="center"
-        android:id="@+id/fadingTextView"
         app:texts="@array/examples"
         app:timeout="500" />
 
-</RelativeLayout>
+    <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+        android:id="@+id/timeout_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:dsb_max="20"
+        app:dsb_min="1"
+        app:dsb_thumbSize="12dp"
+        app:dsb_value="2" />
+
+</LinearLayout>

@@ -48,11 +48,19 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
         handleAttrs(context, attrs);
     }
 
+    /**
+     * Resuming the animation
+     * Should only be used if you notice {@link #onAttachedToWindow()} ()} is not being executed as expected
+     */
     public void resume() {
         isShown = true;
         startAnimation();
     }
 
+    /**
+     * Pausing the animation
+     * Should only be used if you notice {@link #onDetachedFromWindow()} is not being executed as expected
+     */
     public void pause() {
         isShown = false;
         stopAnimation();
@@ -88,17 +96,9 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
         return texts;
     }
 
-    public void setTexts(@ArrayRes int texts) {
-        if (getResources().getStringArray(texts).length < 1)
-            throw new IllegalArgumentException("There must be at least one text");
-        else {
-            this.texts = getResources().getStringArray(texts);
-            stopAnimation();
-            position = 0;
-            startAnimation();
-        }
-    }
-
+    /**
+     * @param texts The string array to use for the texts
+     */
     public void setTexts(@NonNull String[] texts) {
         if (texts.length < 1)
             throw new IllegalArgumentException("There must be at least one text");
@@ -110,6 +110,35 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
         }
     }
 
+    /**
+     * @param texts The string array resource to use for the texts
+     */
+    public void setTexts(@ArrayRes int texts) {
+        if (getResources().getStringArray(texts).length < 1)
+            throw new IllegalArgumentException("There must be at least one text");
+        else {
+            this.texts = getResources().getStringArray(texts);
+            stopAnimation();
+            position = 0;
+            startAnimation();
+        }
+    }
+
+    /**
+     * This method should only be used to forcefully apply timeout changes
+     * It will dismiss the currently queued animation change and start a new animation
+     */
+    public void forceRefresh() {
+        stopAnimation();
+        startAnimation();
+    }
+
+    /**
+     * Sets the length of time to wait between text changes in milliseconds
+     * @deprecated use {@link #setTimeout(double, TimeUnit)} instead.
+     * @param timeout The length of time to wait between text change in milliseconds
+     */
+    @Deprecated
     public void setTimeout(int timeout) {
         if (timeout < 1)
             throw new IllegalArgumentException("Timeout must be longer than 0");
@@ -117,6 +146,12 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
             this.timeout = timeout;
     }
 
+    /**
+     * Sets the length of time to wait between text changes in specific time units
+     * @param timeout The length of time to wait between text change
+     * @param timeUnit The time unit to use for the timeout parameter
+     *                 Must be of {@link TimeUnit} type
+     */
     public void setTimeout(double timeout, @NonNull TimeUnit timeUnit) {
         if (timeout <= 0)
             throw new IllegalArgumentException("Timeout must be longer than 0");

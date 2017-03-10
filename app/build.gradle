@@ -7,6 +7,7 @@ android {
         applicationId "com.tomerrosenfeld.fadingtextview"
         minSdkVersion 15
         targetSdkVersion 25
+        android.defaultConfig.vectorDrawables.useSupportLibrary = true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -27,5 +28,6 @@ dependencies {
     compile project(':fadingtextview')
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support:design:25.2.0'
+    compile 'org.adw.library:discrete-seekbar:1.0.1'
     testCompile 'junit:junit:4.12'
 }
