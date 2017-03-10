@@ -2,7 +2,9 @@
 
 [![Download](https://api.bintray.com/packages/rosenpin/maven/fadingtextview/images/download.svg) ](https://bintray.com/rosenpin/maven/fadingtextview/_latestVersion)
 [![Build Status](https://travis-ci.org/rosenpin/FadingTextView.svg?branch=master)](https://travis-ci.org/rosenpin/FadingTextView)
+<a target="_blank" href="https://rosenpin.github.io/FadingTextView/"><img src="https://img.shields.io/badge/docs-FadingTextView-yellowgreen.svg" alt="DOCS" /></a> 
 [![](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-FadingTextView-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5112)
 <a target="_blank" href="https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#GINGERBREAD"><img src="https://img.shields.io/badge/API-9%2B-blue.svg?style=flat" alt="API" /></a> 
 <a target="_blank" href="https://www.paypal.me/tomerrosenfeld/2usd" title="Donate using PayPal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" /></a>
@@ -90,6 +92,10 @@ FTV.setTimeout(10, FadingTextView.TimeUnit.SECONDS);
 //For text change every 500 milliseconds (0.5 seconds)
 FTV.setTimeout(500, FadingTextView.TimeUnit.MILLISECONDS);
 ```
+
+## Full Documentation
+
+[Click me](https://rosenpin.github.io/FadingTextView/) for the full documentation 
 
 ## License
 
