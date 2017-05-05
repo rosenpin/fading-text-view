@@ -1,5 +1,6 @@
 package com.tomer.fadingtextview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
@@ -194,7 +195,7 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
             this.timeout = (int) (timeout * multiplier);
         }
     }
-
+    @SuppressLint("reference not found")
     /**
      * Sets the length of time to wait between text changes in specific time units
      *
