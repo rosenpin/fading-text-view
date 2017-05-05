@@ -151,7 +151,7 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
      * Sets the length of time to wait between text changes in milliseconds
      *
      * @param timeout The length of time to wait between text change in milliseconds
-     * @deprecated use {@link #setTimeout(double, int)} instead.
+     * @deprecated use {@link #setTimeout(long, java.util.concurrent.TimeUnit)} instead.
      */
     @Deprecated
     public void setTimeout(int timeout) {
@@ -169,7 +169,9 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
      *                 Must be of {@link TimeUnit} type.    Either {@link #MILLISECONDS} or
      *                 {@link #SECONDS} or
      *                 {@link #MINUTES}
+     * @deprecated use {@link #setTimeout(long, java.util.concurrent.TimeUnit)} instead.
      */
+    @Deprecated
     public void setTimeout(double timeout, @TimeUnit int timeUnit) {
         if (timeout <= 0)
             throw new IllegalArgumentException("Timeout must be longer than 0");
