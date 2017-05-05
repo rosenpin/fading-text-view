@@ -107,22 +107,6 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
     }
 
     /**
-     * Sets the texts to be shuffled using a string array
-     *
-     * @param texts The string array to use for the texts
-     */
-    public void setTexts(@NonNull String[] texts) {
-        if (texts.length < 1)
-            throw new IllegalArgumentException("There must be at least one text");
-        else {
-            this.texts = texts;
-            stopAnimation();
-            position = 0;
-            startAnimation();
-        }
-    }
-
-    /**
      * Sets the texts to be shuffled using a string array resource
      *
      * @param texts The string array resource to use for the texts
@@ -132,6 +116,22 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
             throw new IllegalArgumentException("There must be at least one text");
         else {
             this.texts = getResources().getStringArray(texts);
+            stopAnimation();
+            position = 0;
+            startAnimation();
+        }
+    }
+
+    /**
+     * Sets the texts to be shuffled using a string array
+     *
+     * @param texts The string array to use for the texts
+     */
+    public void setTexts(@NonNull String[] texts) {
+        if (texts.length < 1)
+            throw new IllegalArgumentException("There must be at least one text");
+        else {
+            this.texts = texts;
             stopAnimation();
             position = 0;
             startAnimation();
@@ -190,6 +190,27 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
                     break;
             }
             this.timeout = (int) (timeout * multiplier);
+        }
+    }
+
+    /**
+     * Sets the length of time to wait between text changes in specific time units
+     *
+     * @param timeout  The length of time to wait between text change
+     * @param timeUnit The time unit to use for the timeout parameter
+     *                 Must be of {@link java.util.concurrent.TimeUnit} type.    Either {@link java.util.concurrent.TimeUnit.NANOSECONDS} or
+     *                 {@link java.util.concurrent.TimeUnit.MICROSECONDS} or
+     *                 {@link java.util.concurrent.TimeUnit.MILLISECONDS} or
+     *                 {@link java.util.concurrent.TimeUnit.SECONDS} or
+     *                 {@link java.util.concurrent.TimeUnit.MINUTES} or
+     *                 {@link java.util.concurrent.TimeUnit.HOURS} or
+     *                 {@link java.util.concurrent.TimeUnit.DAYS} or
+     */
+    public void setTimeout(long timeout, java.util.concurrent.TimeUnit timeUnit) {
+        if (timeout <= 0)
+            throw new IllegalArgumentException("Timeout must be longer than 0");
+        else {
+            this.timeout = (int) java.util.concurrent.TimeUnit.MILLISECONDS.convert(timeout, timeUnit);
         }
     }
 
