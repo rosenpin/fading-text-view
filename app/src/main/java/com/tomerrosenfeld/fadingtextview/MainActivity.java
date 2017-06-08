@@ -14,8 +14,6 @@ import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import static com.tomer.fadingtextview.FadingTextView.SECONDS;
-
 public class MainActivity extends AppCompatActivity {
 
     int[] jokes = {R.array.examples_1, R.array.examples_2, R.array.examples_3};
@@ -28,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //FadingTextView related code
         final FadingTextView fadingTextView = (FadingTextView) findViewById(R.id.fadingTextView);
-        fadingTextView.setTimeout(2, TimeUnit.MILLISECONDS);
+        fadingTextView.setTimeout(2, TimeUnit.SECONDS);
         //Setting up the timeout seek bar
         DiscreteSeekBar seekBar = (DiscreteSeekBar) findViewById(R.id.timeout_bar);
         seekBar.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {

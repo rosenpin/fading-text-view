@@ -34,29 +34,30 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
     private boolean isShown;
     private int position;
     private int timeout = DEFAULT_TIME_OUT;
+    private boolean stopped;
 
     public FadingTextView(Context context) {
         super(context);
-        init(context);
+        init();
     }
 
     public FadingTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context);
-        handleAttrs(context, attrs);
+        init();
+        handleAttrs(attrs);
     }
 
     public FadingTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context);
-        handleAttrs(context, attrs);
+        init();
+        handleAttrs(attrs);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public FadingTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr);
-        init(context);
-        handleAttrs(context, attrs);
+        init();
+        handleAttrs(attrs);
     }
 
     /**
@@ -77,6 +78,27 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
         stopAnimation();
     }
 
+    /**
+     * Stopping the animation
+     * Unlike the pause function, the stop method will permanently stop the animation until the view is restarted
+     */
+    public void stop() {
+        isShown = false;
+        stopped = true;
+        stopAnimation();
+    }
+
+    /**
+     * Restarting the animation
+     * Only use this to restart the animation after stopping it using {@link #stop}
+     */
+    public void restart() {
+        isShown = true;
+        stopped = false;
+        startAnimation();
+        invalidate();
+    }
+
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
@@ -89,20 +111,33 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
         resume();
     }
 
-    private void init(Context context) {
-        fadeInAnimation = AnimationUtils.loadAnimation(context, R.anim.fadein);
-        fadeOutAnimation = AnimationUtils.loadAnimation(context, R.anim.fadeout);
+    /**
+     * Initialize the view
+     */
+    private void init() {
+        fadeInAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.fadein);
+        fadeOutAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.fadeout);
         handler = new Handler();
         isShown = true;
     }
 
-    private void handleAttrs(Context context, AttributeSet attrs) {
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.fading_text_view);
+    /**
+     * Handle the attributes
+     *
+     * @param attrs provided attributes
+     */
+    private void handleAttrs(AttributeSet attrs) {
+        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.fading_text_view);
         this.texts = a.getTextArray(R.styleable.fading_text_view_texts);
         this.timeout = Math.abs(a.getInteger(R.styleable.fading_text_view_timeout, 14500)) + getResources().getInteger(android.R.integer.config_longAnimTime);
         a.recycle();
     }
 
+    /**
+     * Get the list of texts
+     *
+     * @return the texts array
+     */
     public CharSequence[] getTexts() {
         return texts;
     }
@@ -195,13 +230,16 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
             this.timeout = (int) (timeout * multiplier);
         }
     }
+
     @SuppressLint("reference not found")
     /**
      * Sets the length of time to wait between text changes in specific time units
      *
      * @param timeout  The length of time to wait between text change
      * @param timeUnit The time unit to use for the timeout parameter
-     *                 Must be of {@link java.util.concurrent.TimeUnit} type.    Either {@link java.util.concurrent.TimeUnit.NANOSECONDS} or
+     *                 Must be of {@link java.util.concurrent.TimeUnit} type.
+     *                 Must be one of
+     *                 {@link java.util.concurrent.TimeUnit.NANOSECONDS} or
      *                 {@link java.util.concurrent.TimeUnit.MICROSECONDS} or
      *                 {@link java.util.concurrent.TimeUnit.MILLISECONDS} or
      *                 {@link java.util.concurrent.TimeUnit.SECONDS} or
@@ -217,11 +255,15 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
         }
     }
 
-    private void stopAnimation() {
-        handler.removeCallbacksAndMessages(null);
-        if (getAnimation() != null) getAnimation().cancel();
+    @Override
+    public void startAnimation(Animation animation) {
+        if (isShown && !stopped)
+            super.startAnimation(animation);
     }
 
+    /**
+     * start the animation
+     */
     protected void startAnimation() {
         setText(texts[position]);
         startAnimation(fadeInAnimation);
@@ -251,6 +293,15 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
             }
         }, timeout);
     }
+
+    /**
+     * stop the currently active animation
+     */
+    private void stopAnimation() {
+        handler.removeCallbacksAndMessages(null);
+        if (getAnimation() != null) getAnimation().cancel();
+    }
+
 
     @IntDef({MILLISECONDS, SECONDS, MINUTES})
     @Retention(RetentionPolicy.SOURCE)
