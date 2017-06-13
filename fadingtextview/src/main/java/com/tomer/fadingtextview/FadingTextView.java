@@ -143,22 +143,6 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
     }
 
     /**
-     * Sets the texts to be shuffled using a string array resource
-     *
-     * @param texts The string array resource to use for the texts
-     */
-    public void setTexts(@ArrayRes int texts) {
-        if (getResources().getStringArray(texts).length < 1)
-            throw new IllegalArgumentException("There must be at least one text");
-        else {
-            this.texts = getResources().getStringArray(texts);
-            stopAnimation();
-            position = 0;
-            startAnimation();
-        }
-    }
-
-    /**
      * Sets the texts to be shuffled using a string array
      *
      * @param texts The string array to use for the texts
@@ -168,6 +152,22 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
             throw new IllegalArgumentException("There must be at least one text");
         else {
             this.texts = texts;
+            stopAnimation();
+            position = 0;
+            startAnimation();
+        }
+    }
+
+    /**
+     * Sets the texts to be shuffled using a string array resource
+     *
+     * @param texts The string array resource to use for the texts
+     */
+    public void setTexts(@ArrayRes int texts) {
+        if (getResources().getStringArray(texts).length < 1)
+            throw new IllegalArgumentException("There must be at least one text");
+        else {
+            this.texts = getResources().getStringArray(texts);
             stopAnimation();
             position = 0;
             startAnimation();
@@ -271,25 +271,26 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
             @Override
             public void run() {
                 startAnimation(fadeOutAnimation);
-                getAnimation().setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
+                if (getAnimation() != null)
+                    getAnimation().setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
 
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        if (isShown) {
-                            position = position == texts.length - 1 ? 0 : position + 1;
-                            startAnimation();
                         }
-                    }
 
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            if (isShown) {
+                                position = position == texts.length - 1 ? 0 : position + 1;
+                                startAnimation();
+                            }
+                        }
 
-                    }
-                });
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+
+                        }
+                    });
             }
         }, timeout);
     }
