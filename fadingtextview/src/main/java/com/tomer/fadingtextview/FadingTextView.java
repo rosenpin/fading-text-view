@@ -20,7 +20,6 @@ import java.lang.annotation.RetentionPolicy;
  * @author Tomer Rosenfeld aka rosenpin
  *         Created by rosenpin on 12/8/16.
  */
-
 public class FadingTextView extends android.support.v7.widget.AppCompatTextView {
 
     public static final int DEFAULT_TIME_OUT = 15000;
@@ -255,6 +254,11 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
         }
     }
 
+    /**
+     * Start the specified animation now if should
+     *
+     * @param animation the animation to start now
+     */
     @Override
     public void startAnimation(Animation animation) {
         if (isShown && !stopped)
