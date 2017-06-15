@@ -60,7 +60,7 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
     }
 
     /**
-     * Resuming the animation
+     * Resumes the animation
      * Should only be used if you notice {@link #onAttachedToWindow()} ()} is not being executed as expected
      */
     public void resume() {
@@ -69,7 +69,7 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
     }
 
     /**
-     * Pausing the animation
+     * Pauses the animation
      * Should only be used if you notice {@link #onDetachedFromWindow()} is not being executed as expected
      */
     public void pause() {
@@ -78,7 +78,7 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
     }
 
     /**
-     * Stopping the animation
+     * Stops the animation
      * Unlike the pause function, the stop method will permanently stop the animation until the view is restarted
      */
     public void stop() {
@@ -88,7 +88,7 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
     }
 
     /**
-     * Restarting the animation
+     * Restarts the animation
      * Only use this to restart the animation after stopping it using {@link #stop}
      */
     public void restart() {
@@ -111,7 +111,7 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
     }
 
     /**
-     * Initialize the view
+     * Initialize the view and the animations
      */
     private void init() {
         fadeInAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.fadein);
@@ -122,6 +122,8 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
 
     /**
      * Handle the attributes
+     * set the texts
+     * set the timeout
      *
      * @param attrs provided attributes
      */
@@ -133,28 +135,12 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
     }
 
     /**
-     * Get the list of texts
+     * Get a list of the texts
      *
      * @return the texts array
      */
     public CharSequence[] getTexts() {
         return texts;
-    }
-
-    /**
-     * Sets the texts to be shuffled using a string array
-     *
-     * @param texts The string array to use for the texts
-     */
-    public void setTexts(@NonNull String[] texts) {
-        if (texts.length < 1)
-            throw new IllegalArgumentException("There must be at least one text");
-        else {
-            this.texts = texts;
-            stopAnimation();
-            position = 0;
-            startAnimation();
-        }
     }
 
     /**
@@ -167,6 +153,22 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
             throw new IllegalArgumentException("There must be at least one text");
         else {
             this.texts = getResources().getStringArray(texts);
+            stopAnimation();
+            position = 0;
+            startAnimation();
+        }
+    }
+
+    /**
+     * Sets the texts to be shuffled using a string array
+     *
+     * @param texts The string array to use for the texts
+     */
+    public void setTexts(@NonNull String[] texts) {
+        if (texts.length < 1)
+            throw new IllegalArgumentException("There must be at least one text");
+        else {
+            this.texts = texts;
             stopAnimation();
             position = 0;
             startAnimation();
@@ -266,7 +268,7 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
     }
 
     /**
-     * start the animation
+     * Start the animation
      */
     protected void startAnimation() {
         setText(texts[position]);
@@ -300,7 +302,7 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
     }
 
     /**
-     * stop the currently active animation
+     * Stop the currently active animation
      */
     private void stopAnimation() {
         handler.removeCallbacksAndMessages(null);
