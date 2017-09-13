@@ -29,7 +29,7 @@ Add this to your module build.gradle
 
 ``` gradle
 dependencies {
-    compile 'com.tomer:fadingtextview:2.1'
+    compile 'com.tomer:fadingtextview:2.2'
 }
 ```
 ### Texts
