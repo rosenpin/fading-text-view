@@ -2,7 +2,7 @@
 
 [![Download](https://api.bintray.com/packages/rosenpin/maven/fadingtextview/images/download.svg) ](https://bintray.com/rosenpin/maven/fadingtextview/_latestVersion)
 <a target="_blank" href="https://rosenpin.github.io/FadingTextView/"><img src="https://img.shields.io/badge/docs-FadingTextView-yellowgreen.svg" alt="DOCS" /></a> 
-<a target="_blank" href="https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#GINGERBREAD"><img src="https://img.shields.io/badge/API-14%2B-blue.svg?style=flat" alt="API" /></a> 
+<a target="_blank" href="https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#GINGERBREAD"><img src="https://img.shields.io/badge/API-15%2B-blue.svg?style=flat" alt="API" /></a> 
 <a target="_blank" href="https://www.paypal.me/rosenfeldtomer/2usd" title="Donate using PayPal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" /></a>
 
 A TextView that changes its content automatically every few seconds
@@ -29,7 +29,7 @@ Add this to your module build.gradle
 
 ``` gradle
 dependencies {
-    compile 'com.tomer:fadingtextview:2.1'
+    compile 'com.tomer:fadingtextview:2.2'
 }
 ```
 ### Texts
