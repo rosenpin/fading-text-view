@@ -266,35 +266,37 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
 	 * Start the animation
 	 */
 	protected void startAnimation() {
-		setText(texts[position]);
-		startAnimation(fadeInAnimation);
-		handler.postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				startAnimation(fadeOutAnimation);
-				if (getAnimation() != null) {
-					getAnimation().setAnimationListener(new Animation.AnimationListener() {
-						@Override
-						public void onAnimationStart(Animation animation) {
+		if(!isInEditMode()) {
+			setText(texts[position]);
+			startAnimation(fadeInAnimation);
+			handler.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					startAnimation(fadeOutAnimation);
+					if (getAnimation() != null) {
+						getAnimation().setAnimationListener(new Animation.AnimationListener() {
+							@Override
+							public void onAnimationStart(Animation animation) {
 						
-						}
-						
-						@Override
-						public void onAnimationEnd(Animation animation) {
-							if (isShown) {
-								position = position == texts.length - 1 ? 0 : position + 1;
-								startAnimation();
 							}
-						}
 						
-						@Override
-						public void onAnimationRepeat(Animation animation) {
+							@Override
+							public void onAnimationEnd(Animation animation) {
+								if (isShown) {
+									position = position == texts.length - 1 ? 0 : position + 1;
+									startAnimation();
+								}
+							}
 						
-						}
-					});
+							@Override
+							public void onAnimationRepeat(Animation animation) {
+						
+							}
+						});
+					}
 				}
-			}
-		}, timeout);
+			}, timeout);
+		}
 	}
 	
 	/**
