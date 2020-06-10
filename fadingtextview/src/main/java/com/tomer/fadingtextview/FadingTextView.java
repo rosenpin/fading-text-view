@@ -88,7 +88,11 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
 		startAnimation();
 		pause();
 	}
-
+	
+	/**
+	 * Restarts the animation
+	 * Only use this to restart the animation after stopping it using {@link #stop}
+	 */
 	public void restart() {
 		isShown = true;
 		stopped = false;
