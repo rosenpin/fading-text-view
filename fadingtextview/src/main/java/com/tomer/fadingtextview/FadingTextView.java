@@ -79,15 +79,27 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
 	}
 	
 	/**
-	 * Restarts the animation
-	 * Only use this to restart the animation after stopping it using {@link #stop}
+	 * Fades text to the indicated position in array
+	 * It's recommended to call pause() method before calling this function
 	 */
+	public void fadeTo(int position){
+		this.position = position;
+		isShown = true;
+		startAnimation();
+		pause();
+	}
+
 	public void restart() {
 		isShown = true;
 		stopped = false;
 		startAnimation();
 		invalidate();
 	}
+
+	/**
+	 * Resumes the animation
+	 * Should only be used if you notice {@link #onAttachedToWindow()} ()} is not being executed as expected
+	 */
 	
 	@Override
 	protected void onDetachedFromWindow() {
