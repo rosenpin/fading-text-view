@@ -88,7 +88,7 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
 		startAnimation();
 		pause();
 	}
-	
+
 	/**
 	 * Restarts the animation
 	 * Only use this to restart the animation after stopping it using {@link #stop}
@@ -99,11 +99,6 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
 		startAnimation();
 		invalidate();
 	}
-
-	/**
-	 * Resumes the animation
-	 * Should only be used if you notice {@link #onAttachedToWindow()} ()} is not being executed as expected
-	 */
 	
 	@Override
 	protected void onDetachedFromWindow() {
