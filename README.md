@@ -94,6 +94,15 @@ FTV.setTimeout(10, SECONDS);
 FTV.setTimeout(500, MILLISECONDS);
 ```
 
+### Shuffle
+You can randomize the order of the strings using the `shuffle` method\
+Note: you will need to run the `shuffle` method after each time you update the view\
+Example:
+```
+FTV.setTexts(texts);
+FTV.shuffle();
+```
+
 ## Full Documentation
 
 [Click me](https://rosenpin.github.io/fading-text-view/) for the full documentation 
