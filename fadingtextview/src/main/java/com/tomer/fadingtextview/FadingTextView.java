@@ -13,10 +13,13 @@ import android.view.animation.AnimationUtils;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author Tomer Rosenfeld AKA rosenpin
- *         Created by rosenpin on 12/8/16.
+ * Created by rosenpin on 12/8/16.
  */
 public class FadingTextView extends android.support.v7.widget.AppCompatTextView {
 	
@@ -123,6 +126,12 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
 		this.texts = a.getTextArray(R.styleable.FadingTextView_texts);
 		this.timeout = Math.abs(a.getInteger(R.styleable.FadingTextView_timeout, 14500)) +
 				getResources().getInteger(android.R.integer.config_longAnimTime);
+		
+		boolean shuffle = a.getBoolean(R.styleable.FadingTextView_shuffle, false);
+		if (shuffle) {
+			shuffle();
+		}
+		
 		a.recycle();
 	}
 	
@@ -174,6 +183,17 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
 	public void forceRefresh() {
 		stopAnimation();
 		startAnimation();
+	}
+	
+	/**
+	 * Shuffle the strings
+	 * Each time this method is ran the order of the strings will be randomized
+	 * After you set texts dynamically you will have to call shuffle again
+	 */
+	public void shuffle() {
+		List<CharSequence> texts = Arrays.asList(this.texts);
+		Collections.shuffle(texts);
+		this.texts = (CharSequence[]) texts.toArray();
 	}
 	
 	/**
@@ -266,35 +286,37 @@ public class FadingTextView extends android.support.v7.widget.AppCompatTextView 
 	 * Start the animation
 	 */
 	protected void startAnimation() {
-		setText(texts[position]);
-		startAnimation(fadeInAnimation);
-		handler.postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				startAnimation(fadeOutAnimation);
-				if (getAnimation() != null) {
-					getAnimation().setAnimationListener(new Animation.AnimationListener() {
-						@Override
-						public void onAnimationStart(Animation animation) {
+		if(!isInEditMode()) {
+			setText(texts[position]);
+			startAnimation(fadeInAnimation);
+			handler.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					startAnimation(fadeOutAnimation);
+					if (getAnimation() != null) {
+						getAnimation().setAnimationListener(new Animation.AnimationListener() {
+							@Override
+							public void onAnimationStart(Animation animation) {
 						
-						}
-						
-						@Override
-						public void onAnimationEnd(Animation animation) {
-							if (isShown) {
-								position = position == texts.length - 1 ? 0 : position + 1;
-								startAnimation();
 							}
-						}
 						
-						@Override
-						public void onAnimationRepeat(Animation animation) {
+							@Override
+							public void onAnimationEnd(Animation animation) {
+								if (isShown) {
+									position = position == texts.length - 1 ? 0 : position + 1;
+									startAnimation();
+								}
+							}
 						
-						}
-					});
+							@Override
+							public void onAnimationRepeat(Animation animation) {
+						
+							}
+						});
+					}
 				}
-			}
-		}, timeout);
+			}, timeout);
+		}
 	}
 	
 	/**

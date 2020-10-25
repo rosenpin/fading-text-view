@@ -1,13 +1,6 @@
 <resources>
     <string name="app_name">FadingTextView</string>
     <string name="title_activity_main">MainActivity</string>
-    <string-array name="examples">
-        <item>Text number 1</item>
-        <item>Wow this is text 2</item>
-        <item>SO MUCH TEXTS</item>
-        <item>Many FADING!!!</item>
-        <item>Oh Hi Mark!</item>
-    </string-array>
     <string-array name="examples_1">
         <item>Knock knock.</item>
         <item>Who’s there?</item>
