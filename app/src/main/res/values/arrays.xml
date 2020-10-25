@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="examples">
+        <item>Text number 1</item>
+        <item>Wow this is text 2</item>
+        <item>SO MUCH TEXTS</item>
+        <item>Many FADING!!!</item>
+        <item>Oh Hi Mark!</item>
+    </string-array>
+</resources>
