@@ -3,7 +3,7 @@
 [![Download](https://api.bintray.com/packages/rosenpin/maven/fadingtextview/images/download.svg) ](https://bintray.com/rosenpin/maven/fadingtextview/_latestVersion)
 <a target="_blank" href="https://rosenpin.github.io/fading-text-view/"><img src="https://img.shields.io/badge/docs-FadingTextView-yellowgreen.svg" alt="DOCS" /></a> 
 <a target="_blank" href="https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#GINGERBREAD"><img src="https://img.shields.io/badge/API-15%2B-blue.svg?style=flat" alt="API" /></a> 
-<a target="_blank" href="https://www.paypal.me/rosenfeldtomer/2usd" title="Donate using PayPal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" /></a>
+<a target="_blank" href="https://www.paypal.com/donate/?hosted_button_id=9M8LL9GJXELBN" title="Donate using PayPal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" /></a>
 
 A TextView that changes its content automatically every few seconds
 
