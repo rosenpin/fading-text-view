@@ -4,9 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Handler;
-import android.support.annotation.ArrayRes;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
+import androidx.annotation.ArrayRes;
+import androidx.annotation.IntDef;
+import androidx.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -21,7 +21,7 @@ import java.util.List;
  * @author Tomer Rosenfeld AKA rosenpin
  * Created by rosenpin on 12/8/16.
  */
-public class FadingTextView extends android.support.v7.widget.AppCompatTextView {
+public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView {
 	
 	public static final int DEFAULT_TIME_OUT = 15000;
 	public static final int MILLISECONDS = 1,
