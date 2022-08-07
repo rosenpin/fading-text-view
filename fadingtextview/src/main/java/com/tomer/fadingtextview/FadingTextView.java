@@ -185,6 +185,17 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
         stopAnimation();
         startAnimation();
     }
+    
+    /**
+	  * Fades text to position in provided array and pauses
+	  * Consider calling pause() method before calling this function to avoid overriding currently active animation
+	  */
+    public void fadeTo(int position){
+		        this.position = position;
+        		isShown = true;
+        		startAnimation();
+        		pause();
+    }
 
     /**
      * Shuffle the strings
