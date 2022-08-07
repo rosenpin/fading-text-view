@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/rosenpin/FadingTextView'
     gitUrl = 'https://github.com/rosenpin/FadingTextView.git'
 
-    libraryVersion = '2.5'
+    libraryVersion = '2.6'
 
     developerId = 'rosenpin'
     developerName = 'Tomer Rosenfeld'
@@ -25,13 +25,13 @@ ext {
 }
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+    compileSdkVersion 32
+    buildToolsVersion "26.0.3"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 26
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        targetSdkVersion 32
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
     }
     buildTypes {
@@ -43,9 +43,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:26.1.0'
-    testCompile 'junit:junit:4.12'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    testImplementation 'junit:junit:4.12'
 }
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'

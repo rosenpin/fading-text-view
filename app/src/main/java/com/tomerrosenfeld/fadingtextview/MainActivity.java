@@ -3,8 +3,8 @@ package com.tomerrosenfeld.fadingtextview;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
 import com.tomer.fadingtextview.FadingTextView;
@@ -22,13 +22,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //FadingTextView related code
-        final FadingTextView fadingTextView = (FadingTextView) findViewById(R.id.fadingTextView);
+        final FadingTextView fadingTextView = findViewById(R.id.fadingTextView);
         fadingTextView.setTimeout(2, TimeUnit.SECONDS);
         //Setting up the timeout seek bar
-        DiscreteSeekBar seekBar = (DiscreteSeekBar) findViewById(R.id.timeout_bar);
+        DiscreteSeekBar seekBar =  findViewById(R.id.timeout_bar);
         seekBar.setOnProgressChangeListener(new DiscreteSeekBar.OnProgressChangeListener() {
             @Override
             public void onProgressChanged(DiscreteSeekBar seekBar, int value, boolean fromUser) {
