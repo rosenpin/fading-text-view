@@ -21,8 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        app:shuffle="true"
         app:texts="@array/examples"
+        app:shuffle="true"
         app:timeout="500" />
 
     <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar

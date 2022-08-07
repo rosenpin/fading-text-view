@@ -22,12 +22,12 @@ import java.util.List;
  * Created by rosenpin on 12/8/16.
  */
 public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView {
-	
+
 	public static final int DEFAULT_TIME_OUT = 15000;
 	public static final int MILLISECONDS = 1,
 			SECONDS = 2,
 			MINUTES = 3;
-	
+
 	private Animation fadeInAnimation, fadeOutAnimation;
 	private Handler handler;
 	private CharSequence[] texts;
@@ -35,24 +35,24 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 	private int position;
 	private int timeout = DEFAULT_TIME_OUT;
 	private boolean stopped;
-	
+
 	public FadingTextView(Context context) {
 		super(context);
 		init();
 	}
-	
+
 	public FadingTextView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init();
 		handleAttrs(attrs);
 	}
-	
+
 	public FadingTextView(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		init();
 		handleAttrs(attrs);
 	}
-	
+
 	/**
 	 * Resumes the animation
 	 * Should only be used if you notice {@link #onAttachedToWindow()} ()} is not being executed as expected
@@ -61,7 +61,7 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 		isShown = true;
 		startAnimation();
 	}
-	
+
 	/**
 	 * Pauses the animation
 	 * Should only be used if you notice {@link #onDetachedFromWindow()} is not being executed as expected
@@ -70,7 +70,7 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 		isShown = false;
 		stopAnimation();
 	}
-	
+
 	/**
 	 * Stops the animation
 	 * Unlike the pause function, the stop method will permanently stop the animation until the view is restarted
@@ -80,7 +80,7 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 		stopped = true;
 		stopAnimation();
 	}
-	
+
 	/**
 	 * Restarts the animation
 	 * Only use this to restart the animation after stopping it using {@link #stop}
@@ -91,19 +91,19 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 		startAnimation();
 		invalidate();
 	}
-	
+
 	@Override
 	protected void onDetachedFromWindow() {
 		super.onDetachedFromWindow();
 		pause();
 	}
-	
+
 	@Override
 	protected void onAttachedToWindow() {
 		super.onAttachedToWindow();
 		resume();
 	}
-	
+
 	/**
 	 * Initialize the view and the animations
 	 */
@@ -113,7 +113,7 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 		handler = new Handler();
 		isShown = true;
 	}
-	
+
 	/**
 	 * Handle the attributes
 	 * set the texts
@@ -126,15 +126,15 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 		this.texts = a.getTextArray(R.styleable.FadingTextView_texts);
 		this.timeout = Math.abs(a.getInteger(R.styleable.FadingTextView_timeout, 14500)) +
 				getResources().getInteger(android.R.integer.config_longAnimTime);
-		
+
 		boolean shuffle = a.getBoolean(R.styleable.FadingTextView_shuffle, false);
 		if (shuffle) {
 			shuffle();
 		}
-		
+
 		a.recycle();
 	}
-	
+
 	/**
 	 * Get a list of the texts
 	 *
@@ -143,7 +143,7 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 	public CharSequence[] getTexts() {
 		return texts;
 	}
-	
+
 	/**
 	 * Sets the texts to be shuffled using a string array
 	 *
@@ -159,7 +159,7 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 			startAnimation();
 		}
 	}
-	
+
 	/**
 	 * Sets the texts to be shuffled using a string array resource
 	 *
@@ -175,7 +175,7 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 			startAnimation();
 		}
 	}
-	
+
 	/**
 	 * This method should only be used to forcefully apply timeout changes
 	 * It will dismiss the currently queued animation change and start a new animation
@@ -184,18 +184,23 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 		stopAnimation();
 		startAnimation();
 	}
-	
-	/**
-	 * Shuffle the strings
-	 * Each time this method is ran the order of the strings will be randomized
-	 * After you set texts dynamically you will have to call shuffle again
-	 */
-	public void shuffle() {
+
+    /**
+     * Shuffle the strings
+     * Each time this method is ran the order of the strings will be randomized
+     * After you set texts dynamically you will have to call shuffle again
+     *
+     * @throws IllegalArgumentException if you don't supply texts to the FadingTextView in your XML file. You can leave it empty by using FTV.placeholder and set it manually later using the setTexts method
+     */
+    public void shuffle() {
+        if (this.texts == null) {
+            throw new IllegalArgumentException("You must provide a string array to the FadingTextView using the texts parameter or use FTV.placeholder to leave it empty");
+        }
 		List<CharSequence> texts = Arrays.asList(this.texts);
 		Collections.shuffle(texts);
 		this.texts = (CharSequence[]) texts.toArray();
 	}
-	
+
 	/**
 	 * Sets the length of time to wait between text changes in milliseconds
 	 *
@@ -210,7 +215,7 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 			this.timeout = timeout;
 		}
 	}
-	
+
 	/**
 	 * Sets the length of time to wait between text changes in specific time units
 	 *
@@ -244,7 +249,7 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 			this.timeout = (int) (timeout * multiplier);
 		}
 	}
-	
+
 	@SuppressLint("reference not found")
 	/**
 	 * Sets the length of time to wait between text changes in specific time units
@@ -269,7 +274,7 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 					.convert(timeout, timeUnit);
 		}
 	}
-	
+
 	/**
 	 * Start the specified animation now if should
 	 *
@@ -281,7 +286,7 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 			super.startAnimation(animation);
 		}
 	}
-	
+
 	/**
 	 * Start the animation
 	 */
@@ -297,9 +302,9 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 						getAnimation().setAnimationListener(new Animation.AnimationListener() {
 							@Override
 							public void onAnimationStart(Animation animation) {
-						
+
 							}
-						
+
 							@Override
 							public void onAnimationEnd(Animation animation) {
 								if (isShown) {
@@ -307,10 +312,10 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 									startAnimation();
 								}
 							}
-						
+
 							@Override
 							public void onAnimationRepeat(Animation animation) {
-						
+
 							}
 						});
 					}
@@ -318,7 +323,7 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 			}, timeout);
 		}
 	}
-	
+
 	/**
 	 * Stop the currently active animation
 	 */
@@ -326,8 +331,8 @@ public class FadingTextView extends androidx.appcompat.widget.AppCompatTextView 
 		handler.removeCallbacksAndMessages(null);
 		if (getAnimation() != null) getAnimation().cancel();
 	}
-	
-	
+
+
 	@IntDef({MILLISECONDS, SECONDS, MINUTES})
 	@Retention(RetentionPolicy.SOURCE)
 	public @interface TimeUnit {
