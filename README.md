@@ -1,6 +1,4 @@
 # FadingTextView
-
-[![Download](https://api.bintray.com/packages/rosenpin/maven/fadingtextview/images/download.svg) ](https://bintray.com/rosenpin/maven/fadingtextview/_latestVersion)
 <a target="_blank" href="https://rosenpin.github.io/fading-text-view/"><img src="https://img.shields.io/badge/docs-FadingTextView-yellowgreen.svg" alt="DOCS" /></a> 
 <a target="_blank" href="https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#GINGERBREAD"><img src="https://img.shields.io/badge/API-15%2B-blue.svg?style=flat" alt="API" /></a> 
 <a target="_blank" href="https://www.paypal.com/donate/?hosted_button_id=9M8LL9GJXELBN" title="Donate using PayPal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" /></a>
@@ -15,21 +13,11 @@ A demo app is available on Google Play:
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on GOogle Play" height="60">](https://play.google.com/store/apps/details?id=com.tomerrosenfeld.fadingtextview)
 
 ## Usage
-
-Add this to your project build.gradle
-``` gradle
-allprojects {
-    repositories {
-        jcenter()
-    }
-}
-```
-
 Add this to your module build.gradle
 
 ``` gradle
 dependencies {
-    compile 'com.tomer:fadingtextview:2.6'
+    implementation 'com.tomer:fadingtextview:2.6'
 }
 ```
 ### Texts
