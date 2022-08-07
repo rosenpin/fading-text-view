@@ -1,4 +1,5 @@
 # FadingTextView
+[![](https://jitpack.io/v/rosenpin/fading-text-view.svg)](https://jitpack.io/#rosenpin/fading-text-view)
 <a target="_blank" href="https://rosenpin.github.io/fading-text-view/"><img src="https://img.shields.io/badge/docs-FadingTextView-yellowgreen.svg" alt="DOCS" /></a> 
 <a target="_blank" href="https://developer.android.com/reference/android/os/Build.VERSION_CODES.html#GINGERBREAD"><img src="https://img.shields.io/badge/API-15%2B-blue.svg?style=flat" alt="API" /></a> 
 <a target="_blank" href="https://www.paypal.com/donate/?hosted_button_id=9M8LL9GJXELBN" title="Donate using PayPal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" /></a>
@@ -13,13 +14,20 @@ A demo app is available on Google Play:
 [<img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on GOogle Play" height="60">](https://play.google.com/store/apps/details?id=com.tomerrosenfeld.fadingtextview)
 
 ## Usage
+
+### Newer versions (3.0+)
+Newer versions can be fetched using [JitPack](https://jitpack.io/#rosenpin/fading-text-view/3.0)
+
+### Old versions (2.6-)
 Add this to your module build.gradle
+
 
 ``` gradle
 dependencies {
     implementation 'com.tomer:fadingtextview:2.6'
 }
 ```
+
 ### Texts
 
 First, you need to create a string-array in your values folder like so:
