@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 ext {
     bintrayRepo = 'maven'
@@ -25,8 +26,8 @@ ext {
 }
 
 android {
-    compileSdkVersion 32
-    buildToolsVersion "26.0.3"
+    namespace 'com.tomer.fadingtextview'
+    compileSdk 32
 
     defaultConfig {
         minSdkVersion 14
@@ -47,6 +48,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
-
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle' // deprecated
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle' // deprecated
