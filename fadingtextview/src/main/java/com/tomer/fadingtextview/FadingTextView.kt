@@ -21,16 +21,15 @@ class FadingTextView @JvmOverloads constructor(
     private val fadeOutAnimation: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.fadeout) }
     private val handler: Handler = Handler(Looper.getMainLooper())
 
-    var texts: Array<CharSequence> = arrayOf()
+    var texts: Array<CharSequence> = emptyArray()
         private set
 
-    private var isShown = false
+    private var isShown = true
     private var position = 0
     private var timeout = DEFAULT_TIME_OUT
     private var stopped = false
 
     init {
-        init()
         handleAttrs(attrs)
     }
 
@@ -67,23 +66,20 @@ class FadingTextView @JvmOverloads constructor(
         resume()
     }
 
-    private fun init() {
-        isShown = true
-    }
-
     private fun handleAttrs(attrs: AttributeSet?) {
         attrs?.let { attributeSet ->
-            val a = context.obtainStyledAttributes(attributeSet, R.styleable.FadingTextView)
-            a.getTextArray(R.styleable.FadingTextView_texts)?.let { textArray ->
+            val typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.FadingTextView)
+            typedArray.getTextArray(R.styleable.FadingTextView_texts)?.let { textArray ->
                 texts = textArray
             }
-            timeout = abs(a.getInteger(R.styleable.FadingTextView_timeout, 14500)) +
+            timeout = abs(typedArray.getInteger(R.styleable.FadingTextView_timeout, DEFAULT_TIME_OUT)) +
                     resources.getInteger(android.R.integer.config_longAnimTime)
-            val shuffle = a.getBoolean(R.styleable.FadingTextView_shuffle, false)
-            if (shuffle) {
-                shuffleTexts()
+            typedArray.getBoolean(R.styleable.FadingTextView_shuffle, false).also { shuffle ->
+                if (shuffle) {
+                    shuffleTexts()
+                }
             }
-            a.recycle()
+            typedArray.recycle()
         }
     }
 
@@ -152,25 +148,23 @@ class FadingTextView @JvmOverloads constructor(
     }
 
     protected fun startAnimation() {
-        if (!isInEditMode) {
-            if (texts.isEmpty()) return
-            text = texts[position]
-            startAnimation(fadeInAnimation)
-            handler.postDelayed({
-                startAnimation(fadeOutAnimation)
-                animation?.setAnimationListener(object : Animation.AnimationListener {
-                    override fun onAnimationStart(animation: Animation) {}
-                    override fun onAnimationEnd(animation: Animation) {
-                        if (isShown) {
-                            position = if (position == texts.size - 1) 0 else position + 1
-                            startAnimation()
-                        }
+        if (isInEditMode || texts.isEmpty()) return
+        text = texts[position]
+        startAnimation(fadeInAnimation)
+        handler.postDelayed({
+            startAnimation(fadeOutAnimation)
+            animation?.setAnimationListener(object : Animation.AnimationListener {
+                override fun onAnimationStart(animation: Animation) {}
+                override fun onAnimationEnd(animation: Animation) {
+                    if (isShown) {
+                        position = if (position == texts.size - 1) 0 else position + 1
+                        startAnimation()
                     }
+                }
 
-                    override fun onAnimationRepeat(animation: Animation) {}
-                })
-            }, timeout.toLong())
-        }
+                override fun onAnimationRepeat(animation: Animation) {}
+            })
+        }, timeout.toLong())
     }
 
     private fun stopAnimation() {
@@ -183,7 +177,7 @@ class FadingTextView @JvmOverloads constructor(
     annotation class TimeUnit
 
     companion object {
-        const val DEFAULT_TIME_OUT = 15000
+        private const val DEFAULT_TIME_OUT = 15000
         const val MILLISECONDS = 1
         const val SECONDS = 2
         const val MINUTES = 3
