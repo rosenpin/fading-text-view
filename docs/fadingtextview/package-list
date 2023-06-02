@@ -1,0 +1,20 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.tomer.fadingtextview////PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/index.html
+$dokka.location:com.tomer.fadingtextview/FadingTextView.Companion///PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/-fading-text-view/-companion/index.html
+$dokka.location:com.tomer.fadingtextview/FadingTextView///PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/-fading-text-view/index.html
+$dokka.location:com.tomer.fadingtextview/FadingTextView/FadingTextView/#android.content.Context#android.util.AttributeSet?#kotlin.Int/PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/-fading-text-view/-fading-text-view.html
+$dokka.location:com.tomer.fadingtextview/FadingTextView/fadeTo/#kotlin.Int/PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/-fading-text-view/fade-to.html
+$dokka.location:com.tomer.fadingtextview/FadingTextView/forceRefresh/#/PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/-fading-text-view/force-refresh.html
+$dokka.location:com.tomer.fadingtextview/FadingTextView/pause/#/PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/-fading-text-view/pause.html
+$dokka.location:com.tomer.fadingtextview/FadingTextView/restart/#/PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/-fading-text-view/restart.html
+$dokka.location:com.tomer.fadingtextview/FadingTextView/resume/#/PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/-fading-text-view/resume.html
+$dokka.location:com.tomer.fadingtextview/FadingTextView/setTexts/#kotlin.Array[kotlin.String]/PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/-fading-text-view/set-texts.html
+$dokka.location:com.tomer.fadingtextview/FadingTextView/setTexts/#kotlin.Int/PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/-fading-text-view/set-texts.html
+$dokka.location:com.tomer.fadingtextview/FadingTextView/setTimeout/#kotlin.time.Duration/PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/-fading-text-view/set-timeout.html
+$dokka.location:com.tomer.fadingtextview/FadingTextView/shuffle/#/PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/-fading-text-view/shuffle.html
+$dokka.location:com.tomer.fadingtextview/FadingTextView/startAnimation/#android.view.animation.Animation/PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/-fading-text-view/start-animation.html
+$dokka.location:com.tomer.fadingtextview/FadingTextView/stop/#/PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/-fading-text-view/stop.html
+$dokka.location:com.tomer.fadingtextview/FadingTextView/texts/#/PointingToDeclaration/fadingtextview/com.tomer.fadingtextview/-fading-text-view/texts.html
+com.tomer.fadingtextview
+

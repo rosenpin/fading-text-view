@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>FadingTextView</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>fadingtextview</span>
+            </a>
+    </div>
+    <div>
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":fadingtextview:dokkaHtml/release">androidJvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="fadingtextview::com.tomer.fadingtextview/FadingTextView///PointingToDeclaration//379392637">
+  <div class="breadcrumbs"><a href="../../../index.html">fadingtextview</a><span class="delimiter">/</span><a href="../index.html">com.tomer.fadingtextview</a><span class="delimiter">/</span><span class="current">FadingTextView</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Fading</span><wbr></wbr><span>Text</span><wbr></wbr><span><span>View</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":fadingtextview:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">FadingTextView</a> <span><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a> </span><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">attrs<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/util/AttributeSet.html">AttributeSet</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">defStyleAttr<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">0</span></span></span><span class="token punctuation">)</span> : <a href="https://developer.android.com/reference/kotlin/androidx/appcompat/widget/AppCompatTextView.html">AppCompatTextView</a></div><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">Tomer Rosenfeld AKA rosenpin Created by rosenpin on 12/8/16.</p></span></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,FUNCTION,PROPERTY">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="2141949307%2FConstructors%2F379392637" anchor-label="FadingTextView" id="2141949307%2FConstructors%2F379392637" data-filterable-set=":fadingtextview:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":fadingtextview:dokkaHtml/release" data-filterable-set=":fadingtextview:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-fading-text-view.html"><span>Fading</span><wbr></wbr><span>Text</span><wbr></wbr><span><span>View</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2141949307%2FConstructors%2F379392637"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":fadingtextview:dokkaHtml/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a></div></div><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">attrs<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/util/AttributeSet.html">AttributeSet</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">defStyleAttr<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token operator"> = </span><span class="token constant">0</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="362126272%2FClasslikes%2F379392637" anchor-label="Companion" id="362126272%2FClasslikes%2F379392637" data-filterable-set=":fadingtextview:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":fadingtextview:dokkaHtml/release" data-filterable-set=":fadingtextview:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="362126272%2FClasslikes%2F379392637"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":fadingtextview:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-383286936%2FFunctions%2F379392637" anchor-label="fadeTo" id="-383286936%2FFunctions%2F379392637" data-filterable-set=":fadingtextview:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":fadingtextview:dokkaHtml/release" data-filterable-set=":fadingtextview:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="fade-to.html"><span>fade</span><wbr></wbr><span><span>To</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-383286936%2FFunctions%2F379392637"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":fadingtextview:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="fade-to.html"><span class="token function">fadeTo</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">position<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Fades text to position in provided array and pauses Consider calling pause() method before calling this function to avoid overriding currently active animation</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1386029073%2FFunctions%2F379392637" anchor-label="forceRefresh" id="1386029073%2FFunctions%2F379392637" data-filterable-set=":fadingtextview:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":fadingtextview:dokkaHtml/release" data-filterable-set=":fadingtextview:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="force-refresh.html"><span>force</span><wbr></wbr><span><span>Refresh</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1386029073%2FFunctions%2F379392637"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":fadingtextview:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="force-refresh.html"><span class="token function">forceRefresh</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">This method should only be used to forcefully apply timeout changes It will dismiss the currently queued animation change and start a new animation</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1456661315%2FFunctions%2F379392637" anchor-label="pause" id="1456661315%2FFunctions%2F379392637" data-filterable-set=":fadingtextview:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":fadingtextview:dokkaHtml/release" data-filterable-set=":fadingtextview:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="pause.html"><span><span>pause</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1456661315%2FFunctions%2F379392637"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":fadingtextview:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="pause.html"><span class="token function">pause</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Pauses the animation Should only be used if you notice @see <span data-unresolved-link="com.tomer.fadingtextview/FadingTextView/onDetachedFromWindow/#/PointingToDeclaration/">onDetachedFromWindow</span> is not being executed as expected</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="709511754%2FFunctions%2F379392637" anchor-label="restart" id="709511754%2FFunctions%2F379392637" data-filterable-set=":fadingtextview:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":fadingtextview:dokkaHtml/release" data-filterable-set=":fadingtextview:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="restart.html"><span><span>restart</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="709511754%2FFunctions%2F379392637"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":fadingtextview:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="restart.html"><span class="token function">restart</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Restarts the animation Only use this to restart the animation after stopping it using {@see <a href="stop.html">stop</a>}</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1292970740%2FFunctions%2F379392637" anchor-label="resume" id="1292970740%2FFunctions%2F379392637" data-filterable-set=":fadingtextview:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":fadingtextview:dokkaHtml/release" data-filterable-set=":fadingtextview:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="resume.html"><span><span>resume</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1292970740%2FFunctions%2F379392637"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":fadingtextview:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="resume.html"><span class="token function">resume</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Resumes the animation Should only be used if you notice @see <span data-unresolved-link="com.tomer.fadingtextview/FadingTextView/onAttachedToWindow/#/PointingToDeclaration/">onAttachedToWindow</span>} is not being executed as expected</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="812204688%2FFunctions%2F379392637" anchor-label="setTexts" id="812204688%2FFunctions%2F379392637" data-filterable-set=":fadingtextview:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":fadingtextview:dokkaHtml/release" data-filterable-set=":fadingtextview:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-texts.html"><span>set</span><wbr></wbr><span><span>Texts</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="812204688%2FFunctions%2F379392637"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":fadingtextview:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-texts.html"><span class="token function">setTexts</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">texts<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Sets the texts to be shuffled using a string array</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-texts.html"><span class="token function">setTexts</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/ArrayRes.html"><span class="token annotation builtin">ArrayRes</span></a> </span>texts<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Sets the texts to be shuffled using a string array resource</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1408057926%2FFunctions%2F379392637" anchor-label="setTimeout" id="-1408057926%2FFunctions%2F379392637" data-filterable-set=":fadingtextview:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":fadingtextview:dokkaHtml/release" data-filterable-set=":fadingtextview:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-timeout.html"><span>set</span><wbr></wbr><span><span>Timeout</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1408057926%2FFunctions%2F379392637"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":fadingtextview:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-timeout.html"><span class="token function">setTimeout</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">timeout<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html">Duration</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Sets the length of time to wait between text changes in specific time units</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-257778528%2FFunctions%2F379392637" anchor-label="shuffle" id="-257778528%2FFunctions%2F379392637" data-filterable-set=":fadingtextview:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":fadingtextview:dokkaHtml/release" data-filterable-set=":fadingtextview:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="shuffle.html"><span><span>shuffle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-257778528%2FFunctions%2F379392637"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":fadingtextview:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="shuffle.html"><span class="token function">shuffle</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Shuffle the strings Each time this method is ran, the order of the strings will be randomized After you set texts dynamically you will have to call shuffle again</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-672289233%2FFunctions%2F379392637" anchor-label="startAnimation" id="-672289233%2FFunctions%2F379392637" data-filterable-set=":fadingtextview:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":fadingtextview:dokkaHtml/release" data-filterable-set=":fadingtextview:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-animation.html"><span>start</span><wbr></wbr><span><span>Animation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-672289233%2FFunctions%2F379392637"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":fadingtextview:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="start-animation.html"><span class="token function">startAnimation</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">animation<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/view/animation/Animation.html">Animation</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">This method is overridden to prevent animations from starting when the view is not shown If you want to start the animation manually, use the @see <a href="resume.html">resume</a> method</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1824139841%2FFunctions%2F379392637" anchor-label="stop" id="-1824139841%2FFunctions%2F379392637" data-filterable-set=":fadingtextview:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":fadingtextview:dokkaHtml/release" data-filterable-set=":fadingtextview:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="stop.html"><span><span>stop</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1824139841%2FFunctions%2F379392637"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":fadingtextview:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="stop.html"><span class="token function">stop</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Stops the animation Unlike the pause function, the stop method will permanently stop the animation until the view is restarted</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="611046995%2FProperties%2F379392637" anchor-label="texts" id="611046995%2FProperties%2F379392637" data-filterable-set=":fadingtextview:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":fadingtextview:dokkaHtml/release" data-filterable-set=":fadingtextview:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="texts.html"><span><span>texts</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="611046995%2FProperties%2F379392637"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":fadingtextview:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="texts.html">texts</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char-sequence/index.html">CharSequence</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

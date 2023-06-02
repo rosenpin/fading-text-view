@@ -1,6 +1,12 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.dokka") version "1.8.10"
+}
+
+tasks.dokkaHtml.configure {
+    outputDirectory.set(buildDir.resolve("../../docs"))
+    suppressInheritedMembers.set(true)
 }
 
 android {
