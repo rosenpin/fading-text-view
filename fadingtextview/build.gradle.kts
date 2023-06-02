@@ -17,7 +17,7 @@ val libraryDescription = "A textview that changes its content automatically ever
 val siteUrl = "https://github.com/rosenpin/FadingTextView"
 val gitUrl = "https://github.com/rosenpin/FadingTextView.git"
 
-val libraryVersion = "2.6"
+val libraryVersion = "3.2"
 
 val developerId = "rosenpin"
 val developerName = "Tomer Rosenfeld"
@@ -65,7 +65,7 @@ publishing {
         create<MavenPublication>("ReleaseAar") {
             groupId = publishedGroupId
             artifactId = artifact
-            version = "3.1"
+            version = "3.2"
             afterEvaluate {
                 artifact(tasks.getByName("bundleReleaseAar"))
             }
