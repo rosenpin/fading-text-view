@@ -4,6 +4,28 @@ plugins {
     id("org.jetbrains.dokka") version "1.8.10"
 }
 
+val bintrayRepo = "maven"
+val bintrayName = "fadingtextview"
+
+val publishedGroupId = "com.tomer"
+val libraryName = "fadingtextview"
+val artifact = "fadingtextview"
+
+val libraryDescription = "A textview that changes its content automatically every few seconds Edit"
+
+val siteUrl = "https://github.com/rosenpin/FadingTextView"
+val gitUrl = "https://github.com/rosenpin/FadingTextView.git"
+
+val libraryVersion = "2.6"
+
+val developerId = "rosenpin"
+val developerName = "Tomer Rosenfeld"
+val developerEmail = "tomerosenfeld007@gmail.com"
+
+val licenseName = "The Apache Software License, Version 2.0"
+val licenseUrl = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+val allLicenses = listOf("Apache-2.0")
+
 tasks.dokkaHtml.configure {
     outputDirectory.set(buildDir.resolve("../../docs"))
     suppressInheritedMembers.set(true)
