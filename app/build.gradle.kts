@@ -1,7 +1,6 @@
-import org.gradle.api.JavaVersion
-
 plugins {
     id("com.android.application")
+    id("kotlin-android")
 }
 
 android {
@@ -11,7 +10,6 @@ android {
         applicationId = "com.tomerrosenfeld.fadingtextview"
         minSdk = 23
         targetSdk = 33
-        vectorDrawables.useSupportLibrary = true
         versionCode = 2
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -19,7 +17,6 @@ android {
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
@@ -28,6 +25,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    namespace = "com.tomerrosenfeld.fadingtextview"
 }
 
 dependencies {
@@ -37,6 +35,6 @@ dependencies {
     implementation(project(":fadingtextview"))
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
-    implementation("org.adw.library:discrete-seekbar:1.0.1")
+    implementation("com.github.AnderWeb:discreteSeekBar:99e62e6cd0")
     testImplementation("junit:junit:4.13.2")
 }

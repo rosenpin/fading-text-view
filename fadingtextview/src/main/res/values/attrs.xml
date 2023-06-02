@@ -2,7 +2,7 @@
 <resources>
     <declare-styleable name="FadingTextView">
         <attr name="texts" format="reference" />
-        <attr name="timeout" format="integer" />
+        <attr name="timeout" format="integer"/>
         <attr name="shuffle" format="boolean" />
     </declare-styleable>
 </resources>

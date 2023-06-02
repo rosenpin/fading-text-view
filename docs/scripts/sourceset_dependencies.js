@@ -1,0 +1,1 @@
+sourceset_dependencies='{":fadingtextview:dokkaHtml/androidTestRelease":[],":fadingtextview:dokkaHtml/debug":[],":fadingtextview:dokkaHtml/main":[],":fadingtextview:dokkaHtml/release":[],":fadingtextview:dokkaHtml/testFixtures":[],":fadingtextview:dokkaHtml/testFixturesDebug":[],":fadingtextview:dokkaHtml/testFixturesRelease":[]}'
