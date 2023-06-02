@@ -34,9 +34,15 @@ dependencies {
 
 
 publishing {
-    repositories {
-        maven {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "io.rosenpin"
+            artifactId = "fadingtextview"
+            version = "3.2"
 
+            afterEvaluate {
+                from(components["release"])
+            }
         }
     }
 }
