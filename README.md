@@ -15,18 +15,25 @@ A demo app is available on Google Play:
 
 ## Usage
 
-### Newer versions (3.0+)
-Newer versions can be fetched using [JitPack](https://jitpack.io/#rosenpin/fading-text-view/3.0)
+### Download
+FadingTextView is available on [JitPack](https://jitpack.io/#rosenpin/fading-text-view/3.0)
 
-### Old versions (2.6-)
-Add this to your module build.gradle
-
-
+Step 1. Add the JitPack repository to your root build.gradle
 ``` gradle
-dependencies {
-    implementation 'com.tomer:fadingtextview:2.6'
+allprojects {
+  repositories {
+     ...
+     maven { url 'https://jitpack.io' }
+  }
 }
 ```
+
+Step 2. Add the dependency
+``` gradle
+dependencies {
+    implementation 'com.github.rosenpin:fading-text-view:3.0'
+}
+ ```
 
 ### Texts
 
