@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.dokka") version "1.8.10"
+    id("maven-publish")
 }
 
 tasks.dokkaHtml.configure {
@@ -29,4 +30,13 @@ android {
 dependencies {
     implementation("androidx.appcompat:appcompat:1.4.2")
     testImplementation("junit:junit:4.12")
+}
+
+
+publishing {
+    repositories {
+        maven {
+
+        }
+    }
 }

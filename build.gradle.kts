@@ -1,12 +1,12 @@
 buildscript {
-    val kotlin_version = "1.6.21"
+    val kotlinVersion = "1.6.21"
     repositories {
         mavenCentral()
         google()
     }
     dependencies {
         classpath("com.android.tools.build:gradle:8.0.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
         classpath("com.github.dcendents:android-maven-gradle-plugin:1.4.1")
     }
 }
