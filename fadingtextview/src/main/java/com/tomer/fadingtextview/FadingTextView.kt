@@ -7,18 +7,34 @@ import android.util.AttributeSet
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.annotation.ArrayRes
-import androidx.annotation.IntDef
 import androidx.appcompat.widget.AppCompatTextView
-import kotlin.math.abs
+import kotlin.time.Duration
+import kotlin.time.Duration.Companion.milliseconds
+import kotlin.time.Duration.Companion.seconds
+import kotlin.time.DurationUnit
 
+/**
+ * @author Tomer Rosenfeld AKA rosenpin
+ * Created by rosenpin on 12/8/16.
+ */
 class FadingTextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : AppCompatTextView(context, attrs, defStyleAttr) {
 
-    private val fadeInAnimation: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.fadein) }
-    private val fadeOutAnimation: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.fadeout) }
+    private val fadeInAnimation: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            context,
+            R.anim.fadein
+        )
+    }
+    private val fadeOutAnimation: Animation by lazy {
+        AnimationUtils.loadAnimation(
+            context,
+            R.anim.fadeout
+        )
+    }
     private val handler: Handler = Handler(Looper.getMainLooper())
 
     var texts: Array<CharSequence> = emptyArray()
@@ -33,22 +49,38 @@ class FadingTextView @JvmOverloads constructor(
         handleAttrs(attrs)
     }
 
+    /**
+     * Resumes the animation
+     * Should only be used if you notice @see [onAttachedToWindow]} is not being executed as expected
+     */
     fun resume() {
         isShown = true
         startAnimation()
     }
 
+    /**
+     * Pauses the animation
+     * Should only be used if you notice @see [onDetachedFromWindow] is not being executed as expected
+     */
     fun pause() {
         isShown = false
         stopAnimation()
     }
 
+    /**
+     * Stops the animation
+     * Unlike the pause function, the stop method will permanently stop the animation until the view is restarted
+     */
     fun stop() {
         isShown = false
         stopped = true
         stopAnimation()
     }
 
+    /**
+     * Restarts the animation
+     * Only use this to restart the animation after stopping it using {@see [stop]}
+     */
     fun restart() {
         isShown = true
         stopped = false
@@ -66,23 +98,45 @@ class FadingTextView @JvmOverloads constructor(
         resume()
     }
 
+    /**
+     * Handle the xml attributes
+     * set the texts
+     * set the timeout
+     *
+     * @param attrs provided attributes
+     */
     private fun handleAttrs(attrs: AttributeSet?) {
         attrs?.let { attributeSet ->
-            val typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.FadingTextView)
+            val typedArray =
+                context.obtainStyledAttributes(attributeSet, R.styleable.FadingTextView)
+
             typedArray.getTextArray(R.styleable.FadingTextView_texts)?.let { textArray ->
                 texts = textArray
             }
-            timeout = abs(typedArray.getInteger(R.styleable.FadingTextView_timeout, DEFAULT_TIME_OUT)) +
-                    resources.getInteger(android.R.integer.config_longAnimTime)
-            typedArray.getBoolean(R.styleable.FadingTextView_shuffle, false).also { shuffle ->
-                if (shuffle) {
-                    shuffleTexts()
+
+            val baseTimeout = typedArray.getInteger(
+                R.styleable.FadingTextView_timeout,
+                DEFAULT_TIME_OUT.toInt(DurationUnit.MILLISECONDS)
+            ).milliseconds
+            val animationDuration =
+                resources.getInteger(android.R.integer.config_longAnimTime).milliseconds
+
+            timeout = baseTimeout + animationDuration
+
+            typedArray.getBoolean(R.styleable.FadingTextView_shuffle, false).also { shouldShuffle ->
+                if (shouldShuffle) {
+                    shuffle()
                 }
             }
             typedArray.recycle()
         }
     }
 
+    /**
+     * Sets the texts to be shuffled using a string array
+     *
+     * @param texts The string array to use for the texts
+     */
     fun setTexts(texts: Array<String>) {
         require(texts.isNotEmpty()) { "There must be at least one text" }
         this.texts = texts.map { it }.toTypedArray()
@@ -91,20 +145,29 @@ class FadingTextView @JvmOverloads constructor(
         startAnimation()
     }
 
+    /**
+     * Sets the texts to be shuffled using a string array resource
+     *
+     * @param texts The string array resource to use for the texts
+     */
     fun setTexts(@ArrayRes texts: Int) {
         val mTexts = resources.getStringArray(texts)
-        require(mTexts.isNotEmpty()) { "There must be at least one text" }
-        this.texts = mTexts.map { it }.toTypedArray()
-        stopAnimation()
-        position = 0
-        startAnimation()
+        setTexts(mTexts)
     }
 
+    /**
+     * This method should only be used to forcefully apply timeout changes
+     * It will dismiss the currently queued animation change and start a new animation
+     */
     fun forceRefresh() {
         stopAnimation()
         startAnimation()
     }
 
+    /**
+     * Fades text to position in provided array and pauses
+     * Consider calling pause() method before calling this function to avoid overriding currently active animation
+     */
     fun fadeTo(position: Int) {
         this.position = position
         isShown = true
@@ -112,42 +175,45 @@ class FadingTextView @JvmOverloads constructor(
         pause()
     }
 
-    fun shuffleTexts() {
+    /**
+     * Shuffle the strings
+     * Each time this method is ran, the order of the strings will be randomized
+     * After you set texts dynamically you will have to call shuffle again
+     *
+     * @throws IllegalArgumentException if you don't supply texts to the FadingTextView in your XML file. You can leave it empty by using FTV.placeholder and set it manually later using the setTexts method
+     */
+    fun shuffle() {
         require(texts.isNotEmpty()) { "You must provide a string array to the FadingTextView using the texts parameter" }
         val textsList = texts.toMutableList()
         textsList.shuffle()
         this.texts = textsList.toTypedArray()
     }
 
-    fun setTimeout(timeout: Int) {
-        require(timeout >= 1) { "Timeout must be longer than 0" }
+    /**
+     * Sets the length of time to wait between text changes in specific time units
+     *
+     * @param timeout  The duration to wait between text changes
+     */
+    fun setTimeout(timeout: Duration) {
+        require(timeout.isPositive()) { "Timeout must be longer than 0" }
         this.timeout = timeout
     }
 
-    fun setTimeout(timeout: Double, @TimeUnit timeUnit: Int) {
-        require(!(timeout <= 0)) { "Timeout must be longer than 0" }
-        val multiplier: Int = when (timeUnit) {
-            MILLISECONDS -> 1
-            SECONDS -> 1000
-            MINUTES -> 60000
-            else -> 1
-        }
-        this.timeout = (timeout * multiplier).toInt()
-    }
-
-    fun setTimeout(timeout: Long, timeUnit: java.util.concurrent.TimeUnit?) {
-        require(timeout > 0) { "Timeout must be longer than 0" }
-        this.timeout = java.util.concurrent.TimeUnit.MILLISECONDS
-            .convert(timeout, timeUnit).toInt()
-    }
-
+    /**
+     * This method is overridden to prevent animations from starting when the view is not shown
+     * If you want to start the animation manually, use the @see [resume] method
+     * @param animation the animation to start now
+     */
     override fun startAnimation(animation: Animation) {
         if (isShown && !stopped) {
             super.startAnimation(animation)
         }
     }
 
-    protected fun startAnimation() {
+    /**
+     * Start the animation
+     */
+    private fun startAnimation() {
         if (isInEditMode || texts.isEmpty()) return
         text = texts[position]
         startAnimation(fadeInAnimation)
@@ -164,22 +230,18 @@ class FadingTextView @JvmOverloads constructor(
 
                 override fun onAnimationRepeat(animation: Animation) {}
             })
-        }, timeout.toLong())
+        }, timeout.inWholeMilliseconds)
     }
 
+    /**
+     * Stop the currently active animation
+     */
     private fun stopAnimation() {
         handler.removeCallbacksAndMessages(null)
         animation?.cancel()
     }
 
-    @Retention(AnnotationRetention.SOURCE)
-    @IntDef(MILLISECONDS, SECONDS, MINUTES)
-    annotation class TimeUnit
-
     companion object {
-        private const val DEFAULT_TIME_OUT = 15000
-        const val MILLISECONDS = 1
-        const val SECONDS = 2
-        const val MINUTES = 3
+        private val DEFAULT_TIME_OUT = 15.seconds
     }
 }
