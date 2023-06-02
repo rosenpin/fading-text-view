@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.dokka") version "1.8.10"
+    id("maven-publish")
 }
 
 val bintrayRepo = "maven"
@@ -51,4 +52,23 @@ android {
 dependencies {
     implementation("androidx.appcompat:appcompat:1.4.2")
     testImplementation("junit:junit:4.12")
+}
+
+
+val sourcesJar by tasks.registering(Jar::class) {
+    archiveClassifier.set("sources")
+    from(android.sourceSets.getByName("main").java.srcDirs)
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("ReleaseAar") {
+            groupId = publishedGroupId
+            artifactId = artifact
+            version = "3.1"
+            afterEvaluate {
+                artifact(tasks.getByName("bundleReleaseAar"))
+            }
+        }
+    }
 }
