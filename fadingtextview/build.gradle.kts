@@ -5,9 +5,6 @@ plugins {
     id("maven-publish")
 }
 
-val bintrayRepo = "maven"
-val bintrayName = "fadingtextview"
-
 val publishedGroupId = "com.tomer"
 val libraryName = "fadingtextview"
 val artifact = "fadingtextview"
