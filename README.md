@@ -11,7 +11,7 @@ A TextView that changes its content automatically every few seconds
 ## Usage
 
 ### Download
-FadingTextView is available on [JitPack](https://jitpack.io/#rosenpin/fading-text-view/3.0)
+FadingTextView is available on [JitPack](https://jitpack.io/#rosenpin/fading-text-view/3.3)
 
 Step 1. Add the JitPack repository to your root build.gradle
 ``` gradle
