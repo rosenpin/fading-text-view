@@ -110,12 +110,12 @@ class FadingTextView @JvmOverloads constructor(
             val typedArray =
                 context.obtainStyledAttributes(attributeSet, R.styleable.FadingTextView)
 
-            typedArray.getTextArray(R.styleable.FadingTextView_texts)?.let { textArray ->
+            typedArray.getTextArray(R.styleable.FadingTextView_fadingTextViewTexts)?.let { textArray ->
                 texts = textArray
             }
 
             val baseTimeout = typedArray.getInteger(
-                R.styleable.FadingTextView_timeout,
+                R.styleable.FadingTextView_fadingTextViewTimeout,
                 DEFAULT_TIME_OUT.toInt(DurationUnit.MILLISECONDS)
             ).milliseconds
             val animationDuration =
@@ -123,7 +123,7 @@ class FadingTextView @JvmOverloads constructor(
 
             timeout = baseTimeout + animationDuration
 
-            typedArray.getBoolean(R.styleable.FadingTextView_shuffle, false).also { shouldShuffle ->
+            typedArray.getBoolean(R.styleable.FadingTextView_fadingTextViewShuffle, false).also { shouldShuffle ->
                 if (shouldShuffle) {
                     shuffle()
                 }
@@ -193,6 +193,7 @@ class FadingTextView @JvmOverloads constructor(
      * Sets the length of time to wait between text changes in specific time units
      *
      * @param timeout  The duration to wait between text changes
+     * @throws IllegalArgumentException if the duration is not positive.
      */
     fun setTimeout(timeout: Duration) {
         require(timeout.isPositive()) { "Timeout must be longer than 0" }

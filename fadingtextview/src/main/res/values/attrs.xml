@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="FadingTextView">
-        <attr name="texts" format="reference" />
-        <attr name="timeout" format="integer"/>
-        <attr name="shuffle" format="boolean" />
+        <attr name="fadingTextViewTexts" format="reference" />
+        <attr name="fadingTextViewTimeout" format="integer"/>
+        <attr name="fadingTextViewShuffle" format="boolean" />
     </declare-styleable>
 </resources>

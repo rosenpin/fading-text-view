@@ -21,9 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        app:texts="@array/examples"
-        app:shuffle="true"
-        app:timeout="500" />
+        app:fadingTextViewTexts="@array/examples"
+        app:fadingTextViewShuffle="true"
+        app:fadingTextViewTimeout="500" />
 
     <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
         android:id="@+id/timeout_bar"
