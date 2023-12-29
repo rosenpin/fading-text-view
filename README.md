@@ -66,8 +66,39 @@ app:timeout="500"
             app:timeout="500"
             app:texts="@array/examples" />
 ```
+### Updating the view dynamically - Kotlin
+To set the text dynamically, you can use
 
-### Updating the view dynamically
+```kotlin
+val texts = arrayOf("text1", "text2", "text3")
+val fadingTextView = findViewById<FadingTextView>(R.id.fadingTextView)
+fadingTextView.setTexts(texts) // You can use an array resource or a string array as the parameter
+//fadingTextView.setTexts(R.array.examples)
+```
+
+To set the timeout between text changes you can use:
+
+```kotlin
+//For text change once every hour
+fadingTextView.setTimeout(60.minutes)
+
+//For text change once every half a minute
+fadingTextView.setTimeout(0.5.minutes)
+
+//For text change every 10 seconds
+fadingTextView.setTimeout(10.seconds)
+
+//For text change every 500 milliseconds (0.5 seconds)
+fadingTextView.setTimeout(500.milliseconds)
+```
+
+Or you can shuffle texts that you set
+
+```kotlin
+fadingTextView.shuffle()
+```
+
+### Updating the view dynamically - JAVA
 To set the text dynamically, you can use
 
 ```java
