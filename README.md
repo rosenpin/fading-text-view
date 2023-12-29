@@ -72,7 +72,7 @@ To set the text dynamically, you can use
 ```kotlin
 val texts = arrayOf("text1", "text2", "text3")
 val fadingTextView = findViewById<FadingTextView>(R.id.fadingTextView)
-fadingTextView.setTexts(texts) //You can use an array resource or a string array as the parameter
+fadingTextView.setTexts(texts) // You can use an array resource or a string array as the parameter
 //fadingTextView.setTexts(R.array.examples)
 ```
 
